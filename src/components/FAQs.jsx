@@ -13,7 +13,7 @@ function FAQs() {
       <Helmet>
         <title>Solar FAQs | Solar Panel Questions & Answers Jaipur</title>
         <meta name="description" content="Find answers to common questions about solar panel installation, cost, and benefits in Jaipur and Rajasthan." />
-        <link rel="canonical" href="https://yourdomain.com/faqs" />
+        <link rel="canonical" href="https://shrisarathisolar.com/faqs" />
       </Helmet>
       <FaqHero />
       {/* <AskQuestion /> */}

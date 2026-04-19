@@ -17,7 +17,7 @@ function About() {
       <Helmet>
         <title>About Our Solar Company in Jaipur | Expert Solar Solutions</title>
         <meta name="description" content="Learn about our solar company in Jaipur providing reliable rooftop solar solutions across Rajasthan with expert team and affordable pricing." />
-        <link rel="canonical" href="https://yourdomain.com/about" />
+        <link rel="canonical" href="https://shrisarathisolar.com/about" />
       </Helmet>
       <AboutHero />
       <AboutSection />

@@ -57,7 +57,7 @@ function Home() {
       <Helmet>
         <title>Best Solar Panel Installation in Jaipur | Rooftop Solar Rajasthan</title>
         <meta name="description" content="Affordable solar panel installation in Jaipur for homes and businesses. Get rooftop solar solutions in Rajasthan with expert support." />
-        <link rel="canonical" href="https://yourdomain.com/" />
+        <link rel="canonical" href="https://shrisarathisolar.com/" />
       </Helmet>
 
       {/* HERO SLIDER */}

@@ -10,7 +10,7 @@ function ContactUs() {
       <Helmet>
         <title>Solar Blog Jaipur | Solar Tips, Cost & Installation Guide</title>
         <meta name="description" content="Read latest blogs on solar panel installation, pricing, and benefits in Jaipur. Learn how to save electricity bills with solar energy." />
-        <link rel="canonical" href="https://yourdomain.com/blogs" />
+        <link rel="canonical" href="https://shrisarathisolar.com/blogs" />
       </Helmet>
       <BlogHero />
       <GallerySection />

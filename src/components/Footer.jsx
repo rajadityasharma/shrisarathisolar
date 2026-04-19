@@ -78,7 +78,7 @@ function Footer() {
       <div className="footer-bottom">
         <p>
           © 2026 - {new Date().getFullYear()} <a
-            href="https://aditya-kumar-portfolio.onrender.com/"
+            href="https://shrisarathisolar.com/"
             target="_blank"
             rel="noreferrer"
           >

@@ -11,7 +11,7 @@ function ContactUs() {
       <Helmet>
         <title>Contact Solar Company in Jaipur | Get Free Solar Quote</title>
         <meta name="description" content="Contact our solar company in Jaipur for free consultation and solar panel installation quote. Call now for rooftop solar solutions." />
-        <link rel="canonical" href="https://yourdomain.com/contact" />
+        <link rel="canonical" href="https://shrisarathisolar.com/contact" />
       </Helmet>
       <ContactHero />
       <ContactSection />
