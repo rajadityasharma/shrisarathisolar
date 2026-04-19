@@ -1,11 +1,11 @@
 import { useEffect, useRef } from "react";
 import "./WhySolar.css";
-import free from "../assets/free-electricity.png";
-import emi from "../assets/emi.png";
-import energy from "../assets/energy.png";
-import eco from "../assets/eco.png";
-import support from "../assets/support.png";
-import service from "../assets/service.png";
+import free from "../assets/free-electricity.webp";
+import emi from "../assets/emi.webp";
+import energy from "../assets/energy.webp";
+import eco from "../assets/eco.webp";
+import support from "../assets/support.webp";
+import service from "../assets/service.webp";
 
 const cards = [
   { title: "Free Electricity for 25–30 Years", icon: free },

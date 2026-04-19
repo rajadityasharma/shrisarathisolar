@@ -1,7 +1,7 @@
 import "./Footer.css";
 import { Link } from "react-router-dom";
 
-import logo from "../assets/HR_Power_Energy.png";
+import logo from "../assets/Shri_Sarathi_Solar.webp";
 
 import {
   FaFacebookF,
@@ -18,7 +18,7 @@ function Footer() {
         {/* BRAND */}
         <div className="footer-section brand">
           <div className="logo">
-                  <img src={logo} alt="HR Power Energy" />
+                  <img src={logo} alt="Shri Sarathi Solar" />
                 </div>
           <p>
             Powering a cleaner, greener, and sustainable future with innovative
@@ -27,16 +27,16 @@ function Footer() {
 
           {/* SOCIAL ICONS */}
           <div className="footer-socials">
-            <a href="https://www.facebook.com/profile.php?id=100086147756457" target="_blank" rel="noreferrer">
+            <a href="https://www.facebook.com/profile.php?id=61572133485148" target="_blank" rel="noreferrer">
               <FaFacebookF />
             </a>
-            <a href="https://www.instagram.com/hrpowerenergyofficial/" target="_blank" rel="noreferrer">
+            <a href="https://www.instagram.com/shri_sarathi.solar/" target="_blank" rel="noreferrer">
               <FaInstagram />
             </a>
             <a href="https://twitter.com" target="_blank" rel="noreferrer">
               <FaXTwitter />
             </a>
-            <a href="mailto:hrpowerbikaner@gmail.com">
+            <a href="mailto:shrisarathisolar@gmail.com">
               <FaEnvelope />
             </a>
           </div>
@@ -59,12 +59,15 @@ function Footer() {
         <div className="footer-section">
           <h4>Contact Us</h4>
           <p>
-            📧 <a href="mailto:hrpowerbikaner@gmail.com">
-                hrpowerbikaner@gmail.com
+            📧 <a href="mailto:shrisarathisolar@gmail.com">
+                shrisarathisolar@gmail.com
             </a>
           </p>
           <p>
-            📞 <a href="tel:+917878655054">+91 7878655054</a>
+            📞 <a href="tel:+917878655054">+91 7878 655 054</a>
+          </p>
+          <p>
+            📞 <a href="tel:+917413880009">+91 7413 880 009</a>
           </p>
           <p>📍 India</p>
         </div>
@@ -74,10 +77,17 @@ function Footer() {
       {/* BOTTOM */}
       <div className="footer-bottom">
         <p>
-          © {new Date().getFullYear()} HR Power Energy. All rights reserved. |
+          © 2026 - {new Date().getFullYear()} <a
+            href="https://aditya-kumar-portfolio.onrender.com/"
+            target="_blank"
+            rel="noreferrer"
+          >
+            Shri Sarathi Solar
+          </a>
+          . All rights reserved. |
           Developed & Maintained By{" "}
           <a
-            href="https://aditya-kumar-portfolio.onrender.com/"
+            href="https://adityakumarpatna.netlify.app/"
             target="_blank"
             rel="noreferrer"
           >

@@ -36,19 +36,81 @@
 }
 
 /* CARD */
+/* FLOATING ANIMATION */
 .solar-card {
   background: #ffffff;
   border-radius: 14px;
   padding: 35px 20px;
   text-align: center;
 
-  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.08);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.459);
+
   transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+  /* Continuous floating */
+ animation: 
+  floating 4s ease-in-out infinite,
+  fadeInOut 3s ease-in-out infinite;
+}
+.solar-card:nth-child(1) {
+  animation-delay: 0s;
 }
 
+.solar-card:nth-child(2) {
+  animation-delay: 0.5s;
+}
+
+.solar-card:nth-child(3) {
+  animation-delay: 1s;
+}
+
+.solar-card:nth-child(4) {
+  animation-delay: 1.5s;
+}
+
+.solar-card:nth-child(5) {
+  animation-delay: 2s;
+}
+
+.solar-card:nth-child(6) {
+  animation-delay: 2.5s;
+}
+
+
+
+/* STOP floating on hover */
 .solar-card:hover {
-  transform: translateY(-8px);
-  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.12);
+  animation-play-state: paused, paused;
+
+  transform: translateY(-10px) scale(1.02);
+  box-shadow: 0 20px 45px rgb(0, 0, 0);
+}
+
+
+/* Floating keyframes */
+@keyframes floating {
+  0% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-12px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}
+
+/* FADE IN - OUT LOOP */
+@keyframes fadeInOut {
+  0% {
+    opacity: 0.6;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0.6;
+  }
 }
 
 /* ICON */

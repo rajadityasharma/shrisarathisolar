@@ -2,7 +2,7 @@ import { Link, useLocation } from "react-router-dom";
 import { useState, useEffect } from "react";
 import "./Navbar.css";
 
-import logo from "../assets/HR_Power_Energy.png";
+import logo from "../assets/Shri_Sarathi_Solar.webp";
 
 function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -14,7 +14,7 @@ function Navbar() {
   useEffect(() => {
     if (!isHome) return;
 
-    const heroHeight = window.innerHeight * 0.8; // hero approx height
+    const heroHeight = window.innerHeight * 0.8;
 
     const handleScroll = () => {
       if (window.scrollY > heroHeight) {
@@ -32,11 +32,12 @@ function Navbar() {
     <nav
       className={`navbar 
         ${isHome && !scrolled ? "navbar-transparent" : "navbar-black"}
+        ${menuOpen ? "menu-open" : ""}
       `}
     >
       {/* Logo */}
       <div className="logo">
-        <img src={logo} alt="HR Power Energy" />
+        <img src={logo} alt="Shri Sarathi Solar" />
       </div>
 
       {/* Burger Icon */}

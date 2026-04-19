@@ -7,7 +7,7 @@ export default function ContactHero() {
         <h1>Contact Us</h1>
         <p>
           Have questions or need expert solar guidance?  
-          Get in touch with HR Power Energy today.
+          Get in touch with Shri Sarathi Solar today.
         </p>
       </div>
     </section>

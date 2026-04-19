@@ -1,8 +1,20 @@
 /* Footer main */
 .footer {
-  background-color: #0f172a; /* navy blue */
-  color: #e5e7eb;
+  background: url("../assets/Footer_background.webp") no-repeat center;
+  background-size: cover;
+  color: #0f172a;
   margin-top: 80px;
+  position: relative;
+  z-index: 1;
+}
+
+/* Overlay for readability */
+.footer::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(255, 255, 255, 0.88);
+  z-index: -1;
 }
 
 /* Container */
@@ -13,6 +25,8 @@
   display: flex;
   gap: 40px;
   justify-content: space-between;
+  position: relative;
+  z-index: 2;
 }
 
 /* Sections */
@@ -24,31 +38,32 @@
   font-size: 22px;
   margin-bottom: 15px;
   font-weight: 700;
+  color: #0f172a;
 }
 
 .footer-section h4 {
   font-size: 17px;
   margin-bottom: 15px;
-  color: #22c55e; /* green accent */
+  color: #16a34a;
 }
 
 .footer-section p {
   font-size: 14px;
   line-height: 1.7;
-  color: #cbd5f5;
+  color: #475569;
 }
 
 /* Brand colors */
 .blue {
-  color: #38bdf8; /* soft sky blue */
+  color: #0ea5e9;
 }
 
 .green {
-  color: #22c55e;
+  color: #16a34a;
 }
 
 .white {
-  color: #ffffff;
+  color: #0f172a;
 }
 
 /* Links */
@@ -61,23 +76,25 @@
   font-size: 14px;
   margin-bottom: 10px;
   cursor: pointer;
-  color: #cbd5f5;
+  color: #475569;
   transition: color 0.3s ease;
 }
 
 .footer-section ul li:hover {
-  color: #38bdf8;
+  color: #0ea5e9;
 }
 
 /* Bottom bar */
 .footer-bottom {
-  border-top: 1px solid #1e293b;
+  border-top: 1px solid #e2e8f0;
   text-align: center;
   padding: 15px;
   font-size: 13px;
-  color: #94a3b8;
+  color: #64748b;
+  background: rgba(255, 255, 255, 0.7);
 }
 
+/* Social Icons */
 .footer-socials {
   display: flex;
   gap: 14px;
@@ -88,22 +105,21 @@
   width: 42px;
   height: 42px;
   border-radius: 50%;
-  background: linear-gradient(145deg, #ffffff, #e6ecf2);
+  background: #ffffff;
   display: flex;
   align-items: center;
   justify-content: center;
-  color: #1a9f68;
+  color: #0ea5e9;
   font-size: 1.1rem;
-  box-shadow: 0 8px 18px rgba(0,0,0,0.15);
+  box-shadow: 0 6px 14px rgba(0,0,0,0.1);
   transition: all 0.35s ease;
 }
 
 .footer-socials a:hover {
   transform: translateY(-4px) scale(1.05);
-  background: linear-gradient(145deg, #1a9f68, #00c6ff);
+  background: linear-gradient(145deg, #0ea5e9, #22c55e);
   color: #fff;
 }
-
 
 /* Responsive */
 @media (max-width: 768px) {

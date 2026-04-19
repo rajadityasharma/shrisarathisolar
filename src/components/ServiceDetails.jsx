@@ -1,5 +1,5 @@
 import "./ServiceDetails.css";
-import solarImg from "../assets/service-solar.png";
+import solarImg from "../assets/service-solar.webp";
 
 export default function ServiceDetails() {
   return (
@@ -10,7 +10,7 @@ export default function ServiceDetails() {
         <div className="service-details-content">
           <h2>Complete Solar EPC Solutions</h2>
           <p>
-            HR Power Energy delivers turnkey solar EPC services —
+            Shri Sarathi Solar delivers turnkey solar EPC services —
             from design and engineering to installation and
             commissioning.
           </p>

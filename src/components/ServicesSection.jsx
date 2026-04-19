@@ -1,8 +1,8 @@
 import "./ServicesSection.css";
-import service1 from "../assets/service-installation.png";
-import service2 from "../assets/service-maintenance.png";
-import service3 from "../assets/service-commercial.png";
-import service4 from "../assets/service-subsidy.png";
+import service1 from "../assets/service-installation.webp";
+import service2 from "../assets/service-maintenance.webp";
+import service3 from "../assets/service-commercial.webp";
+import service4 from "../assets/service-subsidy.webp";
 import { Link } from "react-router-dom";
 
 function ServicesSection() {

@@ -1,5 +1,5 @@
 import "./AboutSection.css";
-import aboutImg from "../assets/about-solar.png";
+import aboutImg from "../assets/about-solar.webp";
 import { Link } from "react-router-dom";
 
 function AboutSection() {
@@ -9,13 +9,13 @@ function AboutSection() {
 
         {/* CONTENT */}
         <div className="about-content">
-          <h2>About HR Power Energy</h2>
+          <h2>About Shri Sarathi Solar</h2>
           <p className="tagline">
             Powering a sustainable and energy-independent future
           </p>
 
           <p>
-            HR Power Energy delivers reliable, affordable, and eco-friendly
+            Shri Sarathi Solar delivers reliable, affordable, and eco-friendly
             solar energy solutions across India. We focus on quality,
             transparency, and long-term customer satisfaction.
           </p>

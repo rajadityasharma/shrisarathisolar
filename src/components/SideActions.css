@@ -134,3 +134,72 @@
     font-size: 20px;
   }
 }
+
+.side-actions {
+  position: fixed;
+  right: 20px;
+  bottom: 100px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.action-wrapper {
+  position: relative;
+}
+
+.action-btn {
+  width: 55px;
+  height: 55px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 22px;
+  cursor: pointer;
+}
+
+.whatsapp {
+  background: #25d366;
+}
+
+.phone {
+  background: #2563eb;
+}
+
+.email {
+  background: #ef4444;
+}
+
+/* Dropdown hidden by default */
+.dropdown {
+  position: absolute;
+  right: 58px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: linear-gradient(rgba(255, 0, 0, 0.507),rgba(0, 0, 255, 0.411));
+  padding: 5px;
+  border-radius: 10px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+  display: none;
+  flex-direction: column;
+}
+
+.dropdown a {
+  text-decoration: none;
+  color: #111;
+  padding: 6px 10px;
+  font-size: 14px;
+  white-space: nowrap;
+}
+
+.dropdown a:hover {
+  background: #8fc2f559;
+  border-radius: 6px;
+}
+
+/* Show on hover */
+.action-wrapper:hover .dropdown {
+  display: flex;
+}

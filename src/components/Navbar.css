@@ -1,7 +1,6 @@
 .navbar {
-  /* max-width: 1200px;     👈 yahan se width control hogi */
-  width: 95.5%; 
-  padding: 10px 40px;
+  width: 95.5%;
+  padding: 12px 40px;
 
   position: fixed;
   top: 0;
@@ -12,29 +11,35 @@
   justify-content: space-between;
   align-items: center;
 
-  /* border-radius: 16px; */
+  border-radius: 14px;
+
+  background: rgba(255, 255, 255, 0); /* transparent white */
+
   z-index: 1000;
 
-  transition: background-color 0.35s ease, backdrop-filter 0.35s ease;
+  transition: background-color 0.35s ease,
+              backdrop-filter 0.35s ease,
+              box-shadow 0.35s ease;
 }
 
-/* Home top */
-.navbar-transparent {
-  /* background: rgba(15, 23, 42, 0.2); */
-  /* backdrop-filter: blur(10px); */
-}
-
-/* After hero + other pages */
+/* SCROLL par white + blur */
 .navbar-black {
-  background-color: #0f172a;
+  background-color: rgba(255, 255, 255, 0.95);
+
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+
+  box-shadow: 0 6px 20px rgba(0,0,0,0.1);
 }
+
+
 
 /* LOGO */
 .logo {
   display: flex;
   align-items: center;
   gap: 10px;
-  color: white;
+  color: #0f172a; /* dark text */
   font-weight: 600;
   font-size: 20px;
 }
@@ -42,25 +47,57 @@
 .logo img {
   height: 70px;
   width: auto;
+  transition: transform 0.35s ease;
 }
+
+/* Logo hover zoom */
+.logo img:hover {
+  transform: scale(1.08);
+}
+
 
 /* Desktop nav */
 .nav-links {
   list-style: none;
   display: flex;
-  gap: 28px;
+  gap: 30px;
 }
 
 .nav-links li a {
   text-decoration: none;
-  color: rgb(228, 228, 248);
+  color: #0f172a; /* dark text */
   font-size: 15px;
   font-weight: 500;
+  position: relative;
+
+  transition: all 0.3s ease;
 }
 
+
+/* Hover zoom + color */
 .nav-links li a:hover {
   color: #0ea5e9;
+  transform: scale(1.12);
 }
+
+
+/* Premium underline animation */
+.nav-links li a::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: -6px;
+  width: 0%;
+  height: 2px;
+  background: linear-gradient(90deg, #0ea5e9, #38bdf8);
+  transition: all 0.3s ease;
+  transform: translateX(-50%);
+}
+
+.nav-links li a:hover::after {
+  width: 100%;
+}
+
 
 /* Burger icon */
 .burger {
@@ -73,31 +110,52 @@
 .burger span {
   height: 3px;
   width: 25px;
-  background-color: white;
+  background-color: #0f172a; /* dark lines */
   margin: 4px 0;
   transition: 0.3s;
 }
 
+
+/* Burger hover effect */
+.burger:hover span {
+  background-color: #0ea5e9;
+}
+
+
 /* Tablet & Mobile */
 @media (max-width: 992px) {
+
   .burger {
     display: flex;
   }
 
   .nav-links {
     position: absolute;
-    top: 64px;
+    top: 70px;
     left: 0;
     width: 100%;
-    background-color: #0f172a;
+    background: rgba(255, 255, 255, 0.98);
+
     flex-direction: column;
     align-items: center;
-    gap: 20px;
-    padding: 20px 0;
+    gap: 22px;
+    padding: 25px 0;
+
     display: none;
+
+    border-radius: 0 0 14px 14px;
+
   }
 
   .nav-links.open {
     display: flex;
   }
+
+}
+/* Hamburger click → navbar white */
+.navbar.menu-open {
+  background: rgba(255, 255, 255, 0.98) !important;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  box-shadow: 0 6px 20px rgba(0,0,0,0.1);
 }

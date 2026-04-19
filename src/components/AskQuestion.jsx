@@ -29,7 +29,7 @@ function AskQuestion() {
               {
                 role: "system",
                 content:
-                  "You are a solar energy expert for HR Power Energy. Answer in simple Hindi or English.",
+                  "You are a solar energy expert for Shri Sarathi Solar. Answer in simple Hindi or English.",
               },
               {
                 role: "user",

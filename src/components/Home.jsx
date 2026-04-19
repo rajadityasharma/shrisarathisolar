@@ -1,24 +1,26 @@
 import { useState, useEffect } from "react";
 import "./Home.css";
 
+import { Helmet } from "react-helmet-async";
+
 import WhySolar from "../components/WhySolar";
 import AboutSection from "./AboutSection";
 import ServiceDetails from "./ServiceDetails";
 import WhyChooseUs from "./WhyChooseUs";
-import EmpanelledMarquee from "./EmpanelledMarquee";
+// import EmpanelledMarquee from "./EmpanelledMarquee";
 import DirectorMessage from "./DirectorMessage";
 import CustomerReviews from "./CustomerReviews";
 import ContactSection from "./ContactSection";
 import ContactCards from "./ContactCards";
 
-import slide1 from "../assets/HR_Power_energy_slide1.jpg";
-import slide2 from "../assets/HR_Power_energy_slide2.jpg";
-import slide3 from "../assets/HR_Power_energy_slide3.jpg";
-import slide4 from "../assets/HR_Power_energy_slide4.png";
-import slide5 from "../assets/HR_Power_energy_slide5.png";
-import slide6 from "../assets/HR_Power_energy_slide6.png";
-import slide7 from "../assets/HR_Power_energy_slide7.png";
-import slide8 from "../assets/HR_Power_energy_slide8.png";
+import slide1 from "../assets/HR_Power_energy_slide1.webp";
+import slide2 from "../assets/HR_Power_energy_slide2.webp";
+import slide3 from "../assets/HR_Power_energy_slide3.webp";
+import slide4 from "../assets/HR_Power_energy_slide4.webp";
+import slide5 from "../assets/HR_Power_energy_slide5.webp";
+import slide6 from "../assets/HR_Power_energy_slide6.webp";
+import slide7 from "../assets/HR_Power_energy_slide7.webp";
+import slide8 from "../assets/HR_Power_energy_slide8.webp";
 
 const slides = [
   { title: "Powering a Greener Tomorrow with Reliable and Sustainable Solar Energy Solutions", image: slide1 },
@@ -52,6 +54,12 @@ function Home() {
 
   return (
     <main>
+      <Helmet>
+        <title>Best Solar Panel Installation in Jaipur | Rooftop Solar Rajasthan</title>
+        <meta name="description" content="Affordable solar panel installation in Jaipur for homes and businesses. Get rooftop solar solutions in Rajasthan with expert support." />
+        <link rel="canonical" href="https://yourdomain.com/" />
+      </Helmet>
+
       {/* HERO SLIDER */}
       <section className="slider">
         {slides.map((slide, index) => (
@@ -89,7 +97,7 @@ function Home() {
       <AboutSection />
       <ServiceDetails />
       <WhyChooseUs />
-      <EmpanelledMarquee />
+      {/* <EmpanelledMarquee /> */}
       <DirectorMessage />
       <CustomerReviews />
       <ContactSection />

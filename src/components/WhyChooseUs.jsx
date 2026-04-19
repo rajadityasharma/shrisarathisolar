@@ -1,5 +1,5 @@
 import "./WhyChooseUs.css";
-import chooseImg from "../assets/why-choose.png";
+import chooseImg from "../assets/why-choose.webp";
 
 function WhyChooseUs() {
   return (
@@ -15,7 +15,7 @@ function WhyChooseUs() {
         <div className="choose-content">
           <span className="choose-subtitle">WHY CHOOSE US</span>
 
-          <h2>Reasons to Choose <br /> HR Power Energy</h2>
+          <h2>Reasons to Choose <br /> Shri Sarathi Solar</h2>
 
           <div className="choose-points">
             <ul>

@@ -47,9 +47,9 @@ function ContactSection() {
 
     if (!validateForm()) return;
 
-    const whatsappNumber = "7878655054"; // 🔴 YOUR NUMBER
+    const whatsappNumber = "7976152966"; // 🔴 YOUR NUMBER
 
-    const text = `Hello HR Power Energy 👋%0A
+    const text = `Hello Shri Sarathi Solar 👋%0A
 Name: ${formData.name}%0A
 Email: ${formData.email}%0A
 Phone: ${formData.phone}%0A
@@ -110,7 +110,7 @@ Message: ${formData.message}`;
           {/* MAP */}
           <div className="contact-map">
             <iframe
-              title="HR Power Energy Location"
+              title="Shri Sarathi Solar Location"
               src="https://www.google.com/maps?q=Rajasthan,India&output=embed"
               allowFullScreen=""
               loading="lazy"

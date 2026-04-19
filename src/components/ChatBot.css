@@ -86,3 +86,14 @@
   border: none;
   padding: 10px 14px;
 }
+
+@media (max-width: 768px) {
+  .chatbot-box {
+    top: 50%;
+    left: 50%;
+    right: auto;
+    bottom: auto;
+    transform: translate(-50%, -50%);
+    width: 90%;
+  }
+}

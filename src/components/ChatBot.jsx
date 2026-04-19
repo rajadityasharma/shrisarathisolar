@@ -1,7 +1,7 @@
 import { useState, useRef, useEffect } from "react";
 import "./ChatBot.css";
 import chatbotData from "./chatbotData";
-import logo from "../assets/HR_Power_Energy.png";
+import logo from "../assets/Shri_Sarathi_Solar.webp";
 
 function ChatBot() {
   const [open, setOpen] = useState(false);

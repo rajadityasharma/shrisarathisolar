@@ -1,5 +1,5 @@
 import "./DirectorMessage.css";
-import directorImg from "../assets/logo4.png"; // director photo
+import directorImg from "../assets/CEO_&_Founder.webp"; // director photo
 
 function DirectorMessage() {
   return (
@@ -8,7 +8,7 @@ function DirectorMessage() {
 
         {/* IMAGE */}
         <div className="director-image">
-          <img src={directorImg} alt="Director HR Power Energy" />
+          <img src={directorImg} alt="Director Shri Sarathi Solar" />
         </div>
 
         {/* CONTENT */}
@@ -18,7 +18,7 @@ function DirectorMessage() {
           <h2>Message from Our Director</h2>
 
           <p>
-            At <b>HR Power Energy</b>, my purpose has always been to play an active role in shaping India’s transition towards clean and sustainable energy. As Director, I am personally committed to driving technical excellence, operational efficiency, and uncompromised quality across every project we undertake.
+            At <b>Shri Sarathi Solar</b>, my purpose has always been to play an active role in shaping India’s transition towards clean and sustainable energy. As Director, I am personally committed to driving technical excellence, operational efficiency, and uncompromised quality across every project we undertake.
           </p>
 
           <p>
@@ -29,8 +29,8 @@ function DirectorMessage() {
           </p>
 
           <div className="director-sign">
-            <h4>Mr. [Director Name]</h4>
-            <span>Managing Director</span>
+            <h4><b>Mr. Narender singh </b> <br/> [Managing Director]</h4>
+            <span>Shri Sarathi Solar</span>
           </div>
         </div>
 

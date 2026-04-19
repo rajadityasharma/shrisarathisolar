@@ -3,25 +3,49 @@ import "./SideActions.css";
 function SideActions() {
   return (
     <div className="side-actions">
+
       {/* WhatsApp */}
-      <a
-        href="https://wa.me/7878655054?text=Hello%20HR%20Power%20Energy.%20I%20am%20interested%20in%20your%20solar%20energy%20solutions.%20Please%20share%20details%20regarding%20pricing,%20subsidy,%20and%20installation%20process."
-        target="_blank"
-        rel="noopener noreferrer"
-        className="action-btn whatsapp"
-      >
-        <i className="fa-brands fa-whatsapp"></i>
-      </a>
+      <div className="action-wrapper">
+        <div className="action-btn whatsapp">
+          <i className="fa-brands fa-whatsapp"></i>
+        </div>
+
+        <div className="dropdown">
+          <a
+            href="https://wa.me/7976152966?text=Hello%20Shri%20Sarathi%20Solar"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            +91 79 7615 2966
+          </a>
+
+          <a
+            href="https://wa.me/7413880009?text=Hello%20Shri%20Sarathi%20Solar"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            +91 74 1388 0009
+          </a>
+        </div>
+      </div>
 
       {/* Phone */}
-      <a href="tel:+917878655054" className="action-btn phone">
-        <i className="fa-solid fa-phone"></i>
-      </a>
+      <div className="action-wrapper">
+        <div className="action-btn phone">
+          <i className="fa-solid fa-phone"></i>
+        </div>
 
-      {/* Email */}
-      <a href="mailto:hrpowerbikaner@gmail.com" className="action-btn email">
+        <div className="dropdown">
+          <a href="tel:+917976152966">+91 79 7615 2966</a>
+          <a href="tel:+917413880009">+91 74 1388 0009</a>
+        </div>
+      </div>
+
+      {/* Email (same as before) */}
+      <a href="mailto:shrisarathisolar@gmail.com" className="action-btn email">
         <i className="fa-solid fa-envelope"></i>
       </a>
+
     </div>
   );
 }

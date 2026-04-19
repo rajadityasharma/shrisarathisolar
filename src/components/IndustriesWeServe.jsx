@@ -1,10 +1,10 @@
 import "./IndustriesWeServe.css";
 
-import residential from "../assets/residential.png";
-import commercial from "../assets/commercial.png";
-import industrial from "../assets/industrial.png";
-import hospital from "../assets/hospital.png";
-import education from "../assets/education.png";
+import residential from "../assets/residential.webp";
+import commercial from "../assets/commercial.webp";
+import industrial from "../assets/industrial.webp";
+import hospital from "../assets/hospital.webp";
+import education from "../assets/education.webp";
 
 const industries = [
   {

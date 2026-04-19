@@ -1,45 +1,61 @@
 import { useState } from "react";
 import "./GallerySection.css";
 
-/* IMPORT IMAGES (ADD UNLIMITED) */
-import img1 from "../assets/logo1.png";
-import img2 from "../assets/logo2.png";
-import img3 from "../assets/logo3.png";
-import img4 from "../assets/logo4.png";
-import img5 from "../assets/logo5.png";
+import img1 from "../assets/Hr_power_energy_ad1.webp";
+import img2 from "../assets/Hr_power_energy_ad2.webp";
+import img3 from "../assets/Hr_power_energy_ad3.webp";
+import img4 from "../assets/Hr_power_energy_ad4.webp";
+import img5 from "../assets/service-solar.webp";
+import video1 from "../assets/HR_Power_energy_slide1.mp4";
 
-const images = [img1, img2, img3, img4, img5];
+const galleryItems = [
+  { type: "image", src: img1 },
+  { type: "image", src: img2 },
+  { type: "image", src: img3 },
+  { type: "video", src: video1 },
+  { type: "image", src: img4 },
+  { type: "image", src: img5 },
+];
 
-export default function GallerySection() {
-  const [selectedImg, setSelectedImg] = useState(null);
+const GallerySection = () => {
+  const [selectedItem, setSelectedItem] = useState(null);
 
   return (
     <section className="gallery-section">
-      <h2 className="gallery-heading">Our Project Gallery</h2>
-      <p className="gallery-sub">
-        A glimpse of our solar installations and successful projects
-      </p>
+      <div className="gallery-container">
+        <h2 className="gallery-title">Our Gallery</h2>
 
-      {/* GALLERY GRID */}
-      <div className="gallery-grid">
-        {images.map((img, index) => (
-          <div
-            className="gallery-item"
-            key={index}
-            onClick={() => setSelectedImg(img)}
-          >
-            <img src={img} alt={`Gallery ${index}`} />
-          </div>
-        ))}
+        <div className="gallery-grid">
+          {galleryItems.map((item, index) => (
+            <div
+              className="gallery-card"
+              key={index}
+              onClick={() => setSelectedItem(item)}
+            >
+              {item.type === "image" ? (
+                <img src={item.src} alt="gallery" />
+              ) : (
+                <video src={item.src} muted />
+              )}
+            </div>
+          ))}
+        </div>
       </div>
 
-      {/* MODAL */}
-      {selectedImg && (
-        <div className="gallery-modal" onClick={() => setSelectedImg(null)}>
+      {/* 🔥 LIGHTBOX */}
+      {selectedItem && (
+        <div className="lightbox" onClick={() => setSelectedItem(null)}>
           <span className="close-btn">&times;</span>
-          <img src={selectedImg} alt="Full View" />
+
+          {selectedItem.type === "image" ? (
+            <img src={selectedItem.src} alt="preview" />
+          ) : (
+            <video src={selectedItem.src} controls autoPlay />
+          )}
         </div>
       )}
     </section>
   );
-}
+};
+
+export default GallerySection;

@@ -3,13 +3,13 @@ const chatbotData = [
   // 👋 GREETINGS
   {
     keywords: ["hi", "hello", "hey", "hii", "namaste","namste"],
-    answer: "Hello 👋 Welcome to HR Power Energy. How can I help you with solar solutions today?"
+    answer: "Hello 👋 Welcome to Shri Sarathi Solar. How can I help you with solar solutions today?"
   },
 
   // 🏢 COMPANY INFO
   {
-    keywords: ["company", "hr power", "about", "who are you"],
-    answer: "HR Power Energy is a trusted solar energy company providing residential, commercial, and industrial solar solutions across India."
+    keywords: ["company", "Shri Sarathi", "Sarathi", "about", "who are you"],
+    answer: "Shri Sarathi Solar is a trusted solar energy company providing residential, commercial, and industrial solar solutions across India."
   },
 
   // ☀️ SOLAR GENERAL
@@ -87,7 +87,7 @@ const chatbotData = [
   // 📍 LOCATION
   {
     keywords: ["location", "area", "city", "india"],
-    answer: "HR Power Energy provides solar solutions across multiple cities in India 🇮🇳."
+    answer: "Shri Sarathi Solar provides solar solutions across multiple cities in India 🇮🇳."
   },
 
   // 📞 CONTACT
@@ -99,7 +99,7 @@ const chatbotData = [
   // 📧 EMAIL
   {
     keywords: ["email", "mail"],
-    answer: "📧 You can email us at hrpowerbikaner@gmail.com."
+    answer: "📧 You can email us at shrisarathisolar@gmail.com."
   },
 
   // 💬 WHATSAPP

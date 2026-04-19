@@ -1,9 +1,9 @@
 import { useState, useEffect, useRef } from "react";
 import "./CustomerReviews.css";
 
-import user1 from "../assets/logo4.png";
-import user2 from "../assets/logo2.png";
-import user3 from "../assets/logo3.png";
+import user1 from "../assets/logo4.webp";
+import user2 from "../assets/logo2.webp";
+import user3 from "../assets/logo3.webp";
 
 const reviews = [
   {
@@ -11,7 +11,7 @@ const reviews = [
     role: "Home Owner",
     image: user1,
     review:
-      "HR Power Energy installed our rooftop solar system perfectly. Very professional and transparent service.",
+      "Shri Sarathi Solar installed our rooftop solar system perfectly. Very professional and transparent service.",
   },
   {
     name: "Anita Verma",
@@ -25,7 +25,7 @@ const reviews = [
     role: "Factory Owner",
     image: user3,
     review:
-      "Reliable solar solutions with strong after-sales support. I strongly recommend HR Power Energy.",
+      "Reliable solar solutions with strong after-sales support. I strongly recommend Shri Sarathi Solar.",
   },
 ];
 
