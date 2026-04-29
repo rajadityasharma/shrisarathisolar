@@ -5,8 +5,8 @@
 
   background:
     linear-gradient(
-      rgba(255, 7, 7, 0),
-      rgba(247, 25, 25, 0)
+      rgba(236, 236, 236, 0.849),
+      rgba(192, 231, 238, 0.596)
     ),
     url("../assets/HR_Power_energy_slide5.png");
 
@@ -24,7 +24,7 @@
 
 .process-subtitle {
   text-align: center;
-  color: #555;
+  color: #8382b4;
   margin-bottom: 80px;
 }
 
@@ -43,7 +43,7 @@
   top: 0;
   width: 4px;
   height: 100%;
-  background: linear-gradient(to bottom, #00c6ff, #2ecc71);
+  /* background: linear-gradient(to bottom, #00c8ff48, #2ecc71); */
   transform: translateX(-50%);
   border-radius: 10px;
 }
@@ -114,7 +114,7 @@
 }
 
 .process-content p {
-  color: #ffffff;
+  color: #838383;
   font-size: 0.95rem;
 }
 

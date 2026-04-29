@@ -3,8 +3,8 @@ import { Helmet } from "react-helmet-async";
 
 import BlogHero from "./BlogHero";
 import GallerySection from "./GallerySection";
-import ContactCards from "./ContactCards";
-function ContactUs() {
+import ContactSection from "./ContactSection";
+function Blogs() {
   return (
     <div className="page section contact-info">
       <Helmet>
@@ -14,9 +14,9 @@ function ContactUs() {
       </Helmet>
       <BlogHero />
       <GallerySection />
-      <ContactCards />
+      <ContactSection />
     </div>
   );
 }
 
-export default ContactUs;
+export default Blogs;

@@ -13,14 +13,14 @@ import CustomerReviews from "./CustomerReviews";
 import ContactSection from "./ContactSection";
 import ContactCards from "./ContactCards";
 
-import slide1 from "../assets/HR_Power_energy_slide1.webp";
-import slide2 from "../assets/HR_Power_energy_slide2.webp";
-import slide3 from "../assets/HR_Power_energy_slide3.webp";
-import slide4 from "../assets/HR_Power_energy_slide4.webp";
-import slide5 from "../assets/HR_Power_energy_slide5.webp";
-import slide6 from "../assets/HR_Power_energy_slide6.webp";
-import slide7 from "../assets/HR_Power_energy_slide7.webp";
-import slide8 from "../assets/HR_Power_energy_slide8.webp";
+import slide1 from "../assets/Shri_Sarathi_slide1.webp";
+import slide2 from "../assets/Shri_Sarathi_slide2.webp";
+import slide3 from "../assets/Shri_Sarathi_slide3.webp";
+import slide4 from "../assets/Shri_Sarathi_slide4.webp";
+import slide5 from "../assets/Shri_Sarathi_slide5.webp";
+import slide6 from "../assets/Shri_Sarathi_slide6.webp";
+import slide7 from "../assets/Shri_Sarathi_slide7.webp";
+import slide8 from "../assets/Shri_Sarathi_slide8.webp";
 
 const slides = [
   { title: "Powering a Greener Tomorrow with Reliable and Sustainable Solar Energy Solutions", image: slide1 },
