@@ -1,28 +1,28 @@
 import { useState, useEffect, useRef } from "react";
 import "./CustomerReviews.css";
 
-import user1 from "../assets/logo4.webp";
-import user2 from "../assets/logo2.webp";
-import user3 from "../assets/logo3.webp";
+import user1 from "../assets/Aditya-Kumar.webp";
+import user2 from "../assets/Ajay_Singh.webp";
+import user3 from "../assets/Ajay_Singh2.webp";
 
 const reviews = [
   {
-    name: "Rohit Sharma",
+    name: "Aditya Kumar",
     role: "Home Owner",
     image: user1,
     review:
       "Shri Sarathi Solar installed our rooftop solar system perfectly. Very professional and transparent service.",
   },
   {
-    name: "Anita Verma",
-    role: "Business Owner",
+    name: "Ajay Singh",
+    role: "HR at Epsilon",
     image: user2,
     review:
       "Excellent guidance on subsidy and smooth installation. Highly satisfied with the team.",
   },
   {
-    name: "Suresh Patel",
-    role: "Factory Owner",
+    name: "Ajay Singh",
+    role: "Home Owner",
     image: user3,
     review:
       "Reliable solar solutions with strong after-sales support. I strongly recommend Shri Sarathi Solar.",

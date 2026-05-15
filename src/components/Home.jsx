@@ -36,6 +36,8 @@ const slides = [
 function Home() {
   const [current, setCurrent] = useState(0);
 
+  const [loaded, setLoaded] = useState([0]);
+
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrent((prev) => (prev + 1) % slides.length);
@@ -43,6 +45,18 @@ function Home() {
 
     return () => clearInterval(interval);
   }, []);
+
+  useEffect(() => {
+    setLoaded((prev) => {
+      const next = current + 1;
+
+      if (!prev.includes(next) && next < slides.length) {
+        return [...prev, next];
+      }
+
+      return prev;
+    });
+  }, [current]);
 
   const prevSlide = () => {
     setCurrent(current === 0 ? slides.length - 1 : current - 1);
@@ -55,9 +69,9 @@ function Home() {
   return (
     <main>
       <Helmet>
-        <title>Best Solar Panel Installation in Jaipur | Rooftop Solar Rajasthan</title>
+        <title>Best Solar Panel Installation in Bikaner | Rooftop Solar Rajasthan</title>
         <meta name="description" content="Affordable solar panel installation in Jaipur for homes and businesses. Get rooftop solar solutions in Rajasthan with expert support." />
-        <link rel="canonical" href="https://shrisarathisolar.com/" />
+        <link rel="canonical" href="https://shrisarathisolar.in/" />
       </Helmet>
 
       {/* HERO SLIDER */}
@@ -66,7 +80,12 @@ function Home() {
           <div
             key={index}
             className={`slide ${index === current ? "active" : ""}`}
-            style={{ backgroundImage: `url(${slide.image})` }}
+            style={{
+              backgroundImage:
+                index === current
+                  ? `url(${slide.image})`
+                  : "none",
+            }}
           >
             <div className="overlay">
               <div className="content">

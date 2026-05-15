@@ -78,7 +78,7 @@ function Footer() {
       <div className="footer-bottom">
         <p>
           © 2026 - {new Date().getFullYear()} <a
-            href="https://shrisarathisolar.com/"
+            href="https://shrisarathisolar.in/"
             target="_blank"
             rel="noreferrer"
           >
