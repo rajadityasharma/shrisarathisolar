@@ -42,7 +42,6 @@ function ChatBot() {
     setInput("");
   };
 
-  // ENTER = SEND | SHIFT+ENTER = NEW LINE
   const handleKeyDown = (e) => {
     if (e.key === "Enter" && !e.shiftKey) {
       e.preventDefault();
@@ -52,40 +51,77 @@ function ChatBot() {
 
   return (
     <>
-      {/* Floating Bubble */}
-      <div className="chatbot-bubble" onClick={() => setOpen(!open)}>
-        🤖
+      {/* Floating Mono Bubble */}
+      <div 
+        className={`chatbot-mono-bubble ${open ? "bubble-active" : ""}`} 
+        onClick={() => setOpen(!open)}
+        aria-label="Toggle Support Chat"
+      >
+        {open ? (
+          <i className="fa-solid fa-xmark close-icon-spin"></i>
+        ) : (
+          <div className="icon-badge-wrapper">
+            <i className="fa-solid fa-comment-dots"></i>
+            <span className="mono-pulse-dot"></span>
+          </div>
+        )}
       </div>
 
       {open && (
-        <div className="chatbot-box">
+        <div className="chatbot-premium-box">
           {/* Header */}
-          <div className="chatbot-header">
-            <div className="mini-logo">
-              <img src={logo} alt="HR Power Energy" />
+          <div className="chatbot-premium-header">
+            <div className="bot-profile-meta">
+              <div className="premium-mini-logo">
+                <img src={logo} alt="HR Power Energy" />
+              </div>
+              <div className="bot-status-text">
+                <h4>Solar Assistant</h4>
+                <div className="status-indicator">
+                  <span className="online-dot"></span>
+                  <small>Automated • Online</small>
+                </div>
+              </div>
             </div>
-            <span onClick={() => setOpen(false)}>✖</span>
+            <button className="close-panel-btn" onClick={() => setOpen(false)}>
+              <i className="fa-solid fa-minus"></i>
+            </button>
           </div>
 
           {/* Body */}
-          <div className="chatbot-body" ref={bodyRef}>
+          <div className="chatbot-premium-body" ref={bodyRef}>
             {messages.map((msg, i) => (
-              <div key={i} className={`msg ${msg.from}`}>
-                {msg.text}
+              <div key={i} className={`premium-msg-row ${msg.from}`}>
+                {msg.from === "bot" && (
+                  <div className="bot-avatar-icon">
+                    <i className="fa-solid fa-robot"></i>
+                  </div>
+                )}
+                <div className="premium-msg-bubble">
+                  {msg.text}
+                </div>
               </div>
             ))}
           </div>
 
-          {/* Input */}
-          <div className="chatbot-input">
-            <textarea
-              value={input}
-              onChange={(e) => setInput(e.target.value)}
-              onKeyDown={handleKeyDown}
-              placeholder="Type your question..."
-              rows={1}
-            />
-            <button onClick={sendMessage}>Send</button>
+          {/* Input Panel */}
+          <div className="chatbot-premium-input-zone">
+            <div className="input-textarea-wrapper">
+              <textarea
+                value={input}
+                onChange={(e) => setInput(e.target.value)}
+                onKeyDown={handleKeyDown}
+                placeholder="Type your question..."
+                rows={1}
+              />
+            </div>
+            <button 
+              className={`premium-send-btn ${input.trim() ? "active-ready" : ""}`} 
+              onClick={sendMessage}
+              disabled={!input.trim()}
+            >
+              <i className="fa-solid fa-paper-plane"></i>
+            </button>
           </div>
         </div>
       )}

@@ -12,6 +12,8 @@ import DirectorMessage from "./DirectorMessage";
 import CustomerReviews from "./CustomerReviews";
 import ContactSection from "./ContactSection";
 import ContactCards from "./ContactCards";
+import { Link } from "react-router-dom";
+
 
 import slide1 from "../assets/Shri_Sarathi_slide1.webp";
 import slide2 from "../assets/Shri_Sarathi_slide2.webp";
@@ -23,40 +25,26 @@ import slide7 from "../assets/Shri_Sarathi_slide7.webp";
 import slide8 from "../assets/Shri_Sarathi_slide8.webp";
 
 const slides = [
-  { title: "Powering a Greener Tomorrow with Reliable and Sustainable Solar Energy Solutions", image: slide1 },
-  { title: "Smart Solar Solutions Designed for Homes, Businesses, and a Cleaner Future", image: slide2 },
-  { title: "Energy You Can Trust Backed by Innovation, Efficiency, and Long-Term Reliability", image: slide3 },
-  { title: "Clean Renewable Energy Systems Empowering a Brighter and Sustainable Tomorrow", image: slide4 },
-  { title: "Clean Renewable Energy Systems Empowering a Brighter and Sustainable Tomorrow", image: slide5 },
-  { title: "Clean Renewable Energy Systems Empowering a Brighter and Sustainable Tomorrow", image: slide6 },
-  { title: "Clean Renewable Energy Systems Empowering a Brighter and Sustainable Tomorrow", image: slide7 },
-  { title: "Clean Renewable Energy Systems Empowering a Brighter and Sustainable Tomorrow", image: slide8 },
+  { subtitle: "RENEWABLE ENERGY SOLUTIONS", title: "Powering a Greener Tomorrow with Reliable Solar Energy", image: slide1 },
+  { subtitle: "SMART ECO-INNOVATION", title: "Smart Solar Solutions Designed for Homes & Businesses", image: slide2 },
+  { subtitle: "TRUSTED EFFICIENCY", title: "Energy You Can Trust Backed by Innovation & Reliability", image: slide3 },
+  { subtitle: "SUSTAINABLE FUTURE", title: "Clean Renewable Energy Systems Empowering Tomorrow", image: slide4 },
+  { subtitle: "SUSTAINABLE FUTURE", title: "Clean Renewable Energy Systems Empowering Tomorrow", image: slide5 },
+  { subtitle: "SUSTAINABLE FUTURE", title: "Clean Renewable Energy Systems Empowering Tomorrow", image: slide6 },
+  { subtitle: "SUSTAINABLE FUTURE", title: "Clean Renewable Energy Systems Empowering Tomorrow", image: slide7 },
+  { subtitle: "SUSTAINABLE FUTURE", title: "Clean Renewable Energy Systems Empowering Tomorrow", image: slide8 },
 ];
 
 function Home() {
   const [current, setCurrent] = useState(0);
 
-  const [loaded, setLoaded] = useState([0]);
-
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrent((prev) => (prev + 1) % slides.length);
-    }, 5000);
+    }, 6000); // 6 seconds for better reading time
 
     return () => clearInterval(interval);
   }, []);
-
-  useEffect(() => {
-    setLoaded((prev) => {
-      const next = current + 1;
-
-      if (!prev.includes(next) && next < slides.length) {
-        return [...prev, next];
-      }
-
-      return prev;
-    });
-  }, [current]);
 
   const prevSlide = () => {
     setCurrent(current === 0 ? slides.length - 1 : current - 1);
@@ -74,41 +62,46 @@ function Home() {
         <link rel="canonical" href="https://shrisarathisolar.in/" />
       </Helmet>
 
-      {/* HERO SLIDER */}
-      <section className="slider">
+      {/* NEW HERO SLIDER */}
+      <section className="hero-slider">
         {slides.map((slide, index) => (
           <div
             key={index}
-            className={`slide ${index === current ? "active" : ""}`}
-            style={{
-              backgroundImage:
-                index === current
-                  ? `url(${slide.image})`
-                  : "none",
-            }}
+            className={`hero-slide ${index === current ? "active" : ""}`}
+            style={{ backgroundImage: `url(${slide.image})` }}
           >
-            <div className="overlay">
-              <div className="content">
-                <h1>{slide.title}</h1>
+            <div className="hero-overlay">
+              <div className="hero-content">
+                <span className="hero-subtitle">{slide.subtitle}</span>
+                <h1 className="hero-title">{slide.title}</h1>
+                <div className="hero-cta-group">
+                  <Link to="/contact" className="btn-primary">Get Free Quote</Link>
+                  <Link to="/services" className="btn-secondary">Explore Services</Link>
+                </div>
               </div>
             </div>
           </div>
         ))}
 
-        {/* SLIDE NUMBER */}
-        <div className="slide-count">
-          {String(current + 1).padStart(2, "0")} / {String(slides.length).padStart(2, "0")}
-        </div>
+        {/* MODERN CONTROLS (WITHOUT COUNTER) */}
+        <div className="slider-navigation">
+          <button className="nav-arrow prev" onClick={prevSlide} aria-label="Previous Slide">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M15 18l-6-6 6-6"/></svg>
+          </button>
+          
+          <div className="slide-indicators">
+            {slides.map((_, index) => (
+              <span 
+                key={index} 
+                className={`indicator-dot ${index === current ? "active" : ""}`}
+                onClick={() => setCurrent(index)}
+              />
+            ))}
+          </div>
 
-        {/* BOTTOM CONTROLS */}
-        <div className="slider-controls">
-          <button className="arrow" onClick={prevSlide}>❮</button>
-
-          <span className="slide-number">
-            {String(current + 1).padStart(2, "0")} / {String(slides.length).padStart(2, "0")}
-          </span>
-
-          <button className="arrow" onClick={nextSlide}>❯</button>
+          <button className="nav-arrow next" onClick={nextSlide} aria-label="Next Slide">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M9 18l6-6-6-6"/></svg>
+          </button>
         </div>
       </section>
 

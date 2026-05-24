@@ -1,26 +1,37 @@
 .gallery-section {
-  padding: 80px 20px;
-  background: #0f172a;
-  color: white;
+  padding: 90px 20px;
+  background: linear-gradient(180deg, #eff5e2, #ffffff);
+  color: aqua;
 }
 
 .gallery-wrapper {
-  max-width: 1200px;
+  max-width: 1250px;
   margin: auto;
 }
 
+/* TITLE */
 .gallery-title {
   text-align: center;
-  font-size: 36px;
-  margin-bottom: 40px;
-  font-weight: 700;
+  font-size: 2.8rem;
+  margin-bottom: 55px;
+  font-weight: 800;
   letter-spacing: 1px;
+  position: relative;
 }
 
-/* GRID - Masonry Feel */
+.gallery-title::after {
+  content: "";
+  width: 90px;
+  height: 4px;
+  background: linear-gradient(135deg, #00d2ff, #39ff88);
+  display: block;
+  margin: 14px auto 0;
+}
+
+/* BETTER MASONRY GRID */
 .gallery-grid {
   columns: 3;
-  column-gap: 18px;
+  column-gap: 20px;
 }
 
 @media (max-width: 992px) {
@@ -38,17 +49,18 @@
 /* ITEM */
 .gallery-item {
   position: relative;
-  margin-bottom: 18px;
-  border-radius: 14px;
+  margin-bottom: 20px;
   overflow: hidden;
   cursor: pointer;
   break-inside: avoid;
-  transition: transform 0.3s ease;
-  background: #111827;
-}
 
-.gallery-item:hover {
-  transform: scale(1.02);
+  background: #1e293b;
+
+  transition: 0.4s ease;
+
+  box-shadow:
+    0 10px 25px rgba(0,0,0,0.28),
+    0 2px 8px rgba(0,0,0,0.15);
 }
 
 /* IMAGE / VIDEO */
@@ -56,65 +68,178 @@
 .gallery-item video {
   width: 100%;
   display: block;
-  border-radius: 14px;
-  object-fit: cover;
+
+  /* FULL IMAGE SHOW */
+  object-fit: contain;
+
+  background: #0b1220;
+
+  transition: 0.6s ease;
+}
+
+/* HOVER ZOOM */
+.gallery-item:hover img,
+.gallery-item:hover video {
+  transform: scale(1.04);
 }
 
 /* OVERLAY */
 .overlay {
   position: absolute;
   inset: 0;
-  background: rgba(0,0,0,0.4);
+
+  background: linear-gradient(
+    to top,
+    rgba(0,0,0,0.75),
+    rgba(0,0,0,0.15)
+  );
+
   display: flex;
   justify-content: center;
   align-items: center;
+
   opacity: 0;
-  transition: 0.3s;
-  font-size: 18px;
-  font-weight: 600;
+  transition: 0.35s ease;
+}
+
+/* BUTTON */
+.overlay span {
+  padding: 11px 24px;
+  background: linear-gradient(135deg, #00d2ff, #39ff88);
+  color: #fff;
+  font-size: 0.9rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+
+  transform: translateY(20px);
+  transition: 0.4s ease;
+
+  box-shadow: 0 10px 25px rgba(0,210,255,0.22);
 }
 
 .gallery-item:hover .overlay {
   opacity: 1;
 }
 
+.gallery-item:hover .overlay span {
+  transform: translateY(0);
+}
+
+/* CARD HOVER */
+.gallery-item:hover {
+  transform: translateY(-6px);
+
+  box-shadow:
+    0 18px 40px rgba(0,0,0,0.35),
+    0 5px 15px rgba(0,210,255,0.10);
+}
+
 /* LIGHTBOX */
 .lightbox {
   position: fixed;
   inset: 0;
-  background: rgba(0,0,0,0.9);
+  background: rgba(0,0,0,0.92);
+
   display: flex;
   justify-content: center;
   align-items: center;
+
   z-index: 9999;
   padding: 20px;
+
+  animation: fadeIn 0.3s ease;
 }
 
 .lightbox-content {
   position: relative;
-  max-width: 90%;
-  max-height: 90%;
+  max-width: 95%;
+  max-height: 95%;
 }
 
+/* FULL IMAGE SHOW IN POPUP */
 .lightbox img,
 .lightbox video {
-  width: 100%;
-  max-height: 85vh;
-  border-radius: 12px;
+  width: auto;
+  max-width: 100%;
+  max-height: 90vh;
+
   object-fit: contain;
+
+  background: #0b1220;
+
+  box-shadow:
+    0 20px 50px rgba(0,0,0,0.5),
+    0 5px 15px rgba(0,210,255,0.08);
+
+  animation: zoomIn 0.35s ease;
 }
 
 /* CLOSE BUTTON */
 .close-btn {
   position: absolute;
-  top: -15px;
-  right: -15px;
-  background: white;
-  color: black;
+
+  top: 5%;
+  left: 92%;
+
+  transform: translate(-50%, -50%);
+
   border: none;
-  font-size: 24px;
-  width: 38px;
-  height: 38px;
-  border-radius: 50%;
   cursor: pointer;
+
+  background: transparent;
+  color: red;
+
+  font-size: 2rem;
+  font-weight: bold;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  transition: 0.35s ease;
+}
+
+/* ANIMATIONS */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes zoomIn {
+  from {
+    opacity: 0;
+    transform: scale(0.92);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* MOBILE */
+@media (max-width: 768px) {
+
+  .gallery-section {
+    padding: 70px 16px;
+  }
+
+  .gallery-title {
+    font-size: 2.1rem;
+    margin-bottom: 40px;
+  }
+
+  .overlay span {
+    padding: 10px 20px;
+    font-size: 0.82rem;
+  }
+
+  .close-btn {
+    width: 38px;
+    height: 38px;
+    font-size: 1.2rem;
+  }
 }

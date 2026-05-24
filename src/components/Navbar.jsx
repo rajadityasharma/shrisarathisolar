@@ -12,7 +12,10 @@ function Navbar() {
   const isHome = location.pathname === "/";
 
   useEffect(() => {
-    if (!isHome) return;
+    if (!isHome) {
+      setScrolled(true);
+      return;
+    }
 
     const heroHeight = window.innerHeight * 0.8;
 
@@ -24,38 +27,75 @@ function Navbar() {
       }
     };
 
+    handleScroll();
+
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, [isHome]);
 
+  const closeMenu = () => {
+    setMenuOpen(false);
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
+
   return (
     <nav
       className={`navbar 
-        ${isHome && !scrolled ? "navbar-transparent" : "navbar-black"}
+        ${isHome && !scrolled ? "navbar-transparent" : "navbar-solid"}
         ${menuOpen ? "menu-open" : ""}
       `}
     >
-      {/* Logo */}
-      <div className="logo">
-        <img src={logo} alt="Shri Sarathi Solar" />
-      </div>
+      <div className="navbar-container">
+        {/* Logo - Original Colors Preserved */}
+        <Link to="/" className="logo" onClick={closeMenu}>
+          <img src={logo} alt="Shri Sarathi Solar" />
+        </Link>
 
-      {/* Burger Icon */}
-      <div className="burger" onClick={() => setMenuOpen(!menuOpen)}>
-        <span></span>
-        <span></span>
-        <span></span>
-      </div>
+        {/* Burger Icon */}
+        <button 
+          className={`burger ${menuOpen ? "toggle" : ""}`} 
+          onClick={() => setMenuOpen(!menuOpen)}
+          aria-label="Toggle navigation"
+        >
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
 
-      {/* Links */}
-      <ul className={`nav-links ${menuOpen ? "open" : ""}`}>
-        <li><Link to="/" onClick={() => setMenuOpen(false)}>Home</Link></li>
-        <li><Link to="/about" onClick={() => setMenuOpen(false)}>About</Link></li>
-        <li><Link to="/services" onClick={() => setMenuOpen(false)}>Services</Link></li>
-        <li><Link to="/faqs" onClick={() => setMenuOpen(false)}>FAQs</Link></li>
-        <li><Link to="/blogs" onClick={() => setMenuOpen(false)}>Blogs</Link></li>
-        <li><Link to="/contact" onClick={() => setMenuOpen(false)}>Contact Us</Link></li>
-      </ul>
+        {/* Links */}
+        <ul className={`nav-links ${menuOpen ? "open" : ""}`}>
+          <li>
+            <Link to="/" className={location.pathname === "/" ? "active" : ""} onClick={closeMenu}>
+              Home
+            </Link>
+          </li>
+          <li>
+            <Link to="/about" className={location.pathname === "/about" ? "active" : ""} onClick={closeMenu}>
+              About
+            </Link>
+          </li>
+          <li>
+            <Link to="/services" className={location.pathname === "/services" ? "active" : ""} onClick={closeMenu}>
+              Services
+            </Link>
+          </li>
+          <li>
+            <Link to="/faqs" className={location.pathname === "/faqs" ? "active" : ""} onClick={closeMenu}>
+              FAQs
+            </Link>
+          </li>
+          <li>
+            <Link to="/blogs" className={location.pathname === "/blogs" ? "active" : ""} onClick={closeMenu}>
+              Blogs
+            </Link>
+          </li>
+          <li className="nav-cta-li">
+            <Link to="/contact" className="nav-cta" onClick={closeMenu}>
+              Contact Us
+            </Link>
+          </li>
+        </ul>
+      </div>
     </nav>
   );
 }

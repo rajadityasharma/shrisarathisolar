@@ -20,7 +20,7 @@ function About() {
         <link rel="canonical" href="https://shrisarathisolar.in/about" />
       </Helmet>
       <AboutHero />
-      <AboutSection />
+      <AboutSection showButton={false} />
       <MissionVision />
       <DirectorMessage />
       {/* <EmpanelledMarquee /> */}

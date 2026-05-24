@@ -1,105 +1,201 @@
-.contact-cards-section {
-  padding: 70px 20px;
-  background: linear-gradient(135deg, #ecfeff, #f0fdf4);
+/* ContactCards.css */
+
+.contact-section {
+  padding: 70px 18px;
+  background: linear-gradient(180deg, #f8faff, #eef2ff);
 }
 
-.contact-cards-container {
-  max-width: 1200px;
+.contact-grid {
+  max-width: 1000px;
   margin: auto;
+
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-  gap: 30px;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 24px;
 }
 
-/* CARD */
-.contact-card {
-  background: #fff;
-  border-radius: 24px;
-  padding: 35px 25px;
-  text-align: center;
-  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.08);
-  transition: all 0.35s ease;
+/* Card */
+
+.card {
   position: relative;
+
+  background: rgba(255, 255, 255, 0.75);
+  backdrop-filter: blur(16px);
+
+  border: 1px solid rgba(255, 255, 255, 0.7);
+
+  border-radius: 24px;
+
+  padding: 28px 22px;
+
+  text-align: center;
+
   overflow: hidden;
+
+  transition: all 0.35s ease;
+
+  box-shadow:
+    0 10px 25px rgba(99, 102, 241, 0.08),
+    0 4px 10px rgba(15, 23, 42, 0.04);
 }
 
-.contact-card::before {
+/* Soft Glow */
+
+.card::before {
   content: "";
+
   position: absolute;
-  inset: 0;
-  background: radial-gradient(
-    circle at top left,
-    rgba(255, 255, 255, 0.6),
-    transparent 70%
-  );
-  opacity: 0;
-  transition: 0.3s;
-}
+  top: -60px;
+  right: -60px;
 
-.contact-card:hover::before {
-  opacity: 1;
-}
+  width: 140px;
+  height: 140px;
 
-.contact-card:hover {
-  transform: translateY(-10px);
-}
-
-/* ICON */
-.contact-card .icon {
-  font-size: 42px;
-  margin-bottom: 18px;
-}
-
-/* TEXT */
-.contact-card h4 {
-  font-size: 20px;
-  margin-bottom: 8px;
-}
-
-.contact-card p {
-  font-size: 14px;
-  color: #555;
-  margin-bottom: 18px;
-}
-
-/* BUTTON */
-.contact-card a {
-  display: inline-block;
-  padding: 10px 22px;
-  border-radius: 30px;
-  font-size: 14px;
-  font-weight: 600;
-  text-decoration: none;
-  color: #fff;
-}
-
-/* COLORS */
-.contact-card.email .icon,
-.contact-card.email a {
-  background: linear-gradient(135deg, #0ea5e9, #38bdf8);
-}
-
-.contact-card.phone .icon,
-.contact-card.phone a {
-  background: linear-gradient(135deg, #22c55e, #4ade80);
-}
-
-.contact-card.whatsapp .icon,
-.contact-card.whatsapp a {
-  background: linear-gradient(135deg, #25d366, #16a34a);
-}
-
-/* ICON BG */
-.contact-card .icon {
-  color: #fff;
-  padding: 16px;
   border-radius: 50%;
+
+  background: rgba(99, 102, 241, 0.08);
+
+  transition: 0.4s ease;
 }
 
-/* RESPONSIVE */
+.card:hover::before {
+  transform: scale(1.2);
+}
+
+.card:hover {
+  transform: translateY(-8px);
+
+  box-shadow:
+    0 18px 35px rgba(99, 102, 241, 0.14),
+    0 8px 18px rgba(15, 23, 42, 0.05);
+}
+
+/* Icon */
+
+.icon-box {
+  width: 65px;
+  height: 65px;
+
+  margin: auto;
+  margin-bottom: 18px;
+
+  border-radius: 18px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  font-size: 24px;
+  color: white;
+
+  background: linear-gradient(135deg, #6366f1, #818cf8);
+
+  box-shadow: 0 10px 20px rgba(99, 102, 241, 0.22);
+
+  transition: all 0.35s ease;
+}
+
+.card:hover .icon-box {
+  transform: rotate(-5deg) scale(1.08);
+}
+
+/* Heading */
+
+.card h3 {
+  font-size: 1.2rem;
+  font-weight: 700;
+
+  color: #111827;
+
+  margin-bottom: 18px;
+}
+
+/* Links */
+
+.links {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.links a {
+  text-decoration: none;
+
+  padding: 11px 14px;
+
+  border-radius: 12px;
+
+  background: rgba(99, 102, 241, 0.06);
+
+  color: #4b5563;
+
+  font-size: 0.92rem;
+  font-weight: 600;
+
+  transition: all 0.3s ease;
+}
+
+.links a:hover {
+  background: #6366f1;
+  color: white;
+
+  transform: translateY(-2px);
+
+  box-shadow: 0 10px 18px rgba(99, 102, 241, 0.2);
+}
+
+/* Bottom Accent */
+
+.card::after {
+  content: "";
+
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+
+  transform: translateX(-50%);
+
+  width: 45px;
+  height: 4px;
+
+  border-radius: 20px;
+
+  background: #6366f1;
+
+  transition: width 0.3s ease;
+}
+
+.card:hover::after {
+  width: 90px;
+}
+
+/* Mobile */
+
 @media (max-width: 768px) {
-  .contact-card {
-    padding: 30px 20px;
+  .contact-section {
+    padding: 55px 14px;
+  }
+
+  .contact-grid {
+    gap: 18px;
+  }
+
+  .card {
+    padding: 24px 18px;
+  }
+
+  .icon-box {
+    width: 58px;
+    height: 58px;
+    font-size: 22px;
+  }
+
+  .card h3 {
+    font-size: 1.08rem;
+  }
+
+  .links a {
+    font-size: 0.88rem;
+    padding: 10px 12px;
   }
 }
-

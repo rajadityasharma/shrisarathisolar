@@ -1,161 +1,268 @@
-.navbar {
-  width: 95.5%;
-  padding: 12px 40px;
+/* ==========================================================================
+   PREMIUM NAVBAR STYLING (ORIGINAL LOGO PRESERVED)
+   ========================================================================= */
 
+.navbar {
   position: fixed;
   top: 0;
-  left: 49.9%;
-  transform: translateX(-50%);
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  padding: 1.2rem 0;
+}
 
+.navbar-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 5%;
   display: flex;
   justify-content: space-between;
   align-items: center;
-
-  border-radius: 14px;
-
-  background: rgba(255, 255, 255, 0); /* transparent white */
-
-  z-index: 1000;
-
-  transition: background-color 0.35s ease,
-              backdrop-filter 0.35s ease,
-              box-shadow 0.35s ease;
 }
 
-/* SCROLL par white + blur */
-.navbar-black {
-  background-color: rgba(255, 255, 255, 0.95);
-
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-
-  box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+/* --- STATE 1: Transparent Mode (Starting Over Hero) --- */
+.navbar-transparent {
+  background: transparent; 
+  padding: 1.5rem 0; 
 }
 
+/* DESKTOP ONLY: Transparent mode text configuration */
+@media (min-width: 993px) {
+  .navbar-transparent .nav-links a {
+    color: #ffffff;
+    text-shadow: 0 2px 5px rgba(0, 0, 0, 0.6); 
+    font-weight: 600;
+  }
+}
 
+.navbar-transparent .burger span {
+  background-color: #ffffff;
+}
 
-/* LOGO */
+/* --- STATE 2: Solid / Scrolled Mode (Premium Frosted Glass) --- */
+.navbar-solid {
+  background: rgba(255, 255, 255, 0.95); 
+  backdrop-filter: blur(15px); 
+  -webkit-backdrop-filter: blur(15px);
+  box-shadow: 0 4px 25px rgba(0, 0, 0, 0.08);
+  padding: 0.8rem 0; 
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+/* DESKTOP ONLY: Solid mode text configuration */
+@media (min-width: 993px) {
+  .navbar-solid .nav-links a:not(.nav-cta) {
+    color: #1e293b; 
+    font-weight: 500;
+  }
+}
+
+.navbar-solid .burger span {
+  background-color: #1e293b; 
+}
+
+/* --- LOGO STYLING (PURE NATURAL & ULTRA CLEAR) --- */
 .logo {
   display: flex;
   align-items: center;
-  gap: 10px;
-  color: #0f172a; /* dark text */
-  font-weight: 600;
-  font-size: 20px;
+  transition: transform 0.3s ease;
+}
+
+.logo:hover {
+  transform: scale(1.03);
 }
 
 .logo img {
-  height: 70px;
+  height: 54px; 
   width: auto;
-  transition: transform 0.35s ease;
+  object-fit: contain;
+  filter: drop-shadow(0px 2px 5px rgba(0, 0, 0, 0.4)) drop-shadow(0px 4px 15px rgba(0, 0, 0, 0.2));
 }
 
-/* Logo hover zoom */
-.logo img:hover {
-  transform: scale(1.08);
-}
-
-
-/* Desktop nav */
+/* --- DESKTOP NAV LINKS --- */
 .nav-links {
-  list-style: none;
   display: flex;
-  gap: 30px;
+  align-items: center;
+  gap: 2.2rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
 }
 
-.nav-links li a {
+.nav-links a {
   text-decoration: none;
-  color: #0f172a; /* dark text */
-  font-size: 15px;
-  font-weight: 500;
+  font-size: 1rem;
+  letter-spacing: 0.3px;
   position: relative;
-
-  transition: all 0.3s ease;
+  transition: color 0.3s ease, background-color 0.3s ease, transform 0.2s ease;
 }
 
-
-/* Hover zoom + color */
-.nav-links li a:hover {
-  color: #0ea5e9;
-  transform: scale(1.12);
-}
-
-
-/* Premium underline animation */
-.nav-links li a::after {
-  content: "";
+/* Orange Underline Effect matching solar vibe */
+.nav-links a:not(.nav-cta)::after {
+  content: '';
   position: absolute;
-  left: 50%;
   bottom: -6px;
-  width: 0%;
-  height: 2px;
-  background: linear-gradient(90deg, #0ea5e9, #38bdf8);
-  transition: all 0.3s ease;
-  transform: translateX(-50%);
+  left: 0;
+  width: 0;
+  height: 2.5px;
+  background-color: #ff9f1c; 
+  transition: width 0.3s ease;
 }
 
-.nav-links li a:hover::after {
+.nav-links a:not(.nav-cta):hover::after,
+.nav-links a.active::after {
   width: 100%;
 }
 
+/* Desktop Hover Accent Colors */
+.nav-links a:hover,
+.nav-links a.active {
+  color: #ff9f1c;
+}
 
-/* Burger icon */
+/* Contact Us Button (Using Brand Royal Blue) */
+.nav-cta {
+  background-color: #0056b3; 
+  color: #ffffff !important;
+  padding: 0.65rem 1.5rem;
+  border-radius: 50px;
+  font-weight: 600 !important;
+  box-shadow: 0 4px 15px rgba(0, 86, 179, 0.3);
+  transition: all 0.3s ease !important;
+  text-shadow: none !important;
+}
+
+.nav-cta:hover {
+  background-color: #ff9f1c; 
+  color: #ffffff !important;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(255, 159, 28, 0.4);
+}
+
+/* --- BURGER BUTTON --- */
 .burger {
   display: none;
   flex-direction: column;
+  justify-content: space-between;
+  width: 26px;
+  height: 20px;
+  background: transparent;
+  border: none;
   cursor: pointer;
-  padding: 1.2rem;
+  padding: 0;
+  z-index: 1001;
 }
 
 .burger span {
-  height: 3px;
-  width: 25px;
-  background-color: #0f172a; /* dark lines */
-  margin: 4px 0;
-  transition: 0.3s;
+  width: 100%;
+  height: 2.5px;
+  border-radius: 2px;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-
-/* Burger hover effect */
-.burger:hover span {
-  background-color: #0ea5e9;
+/* Jab drawer khula ho tab cross icon humesha visible pure white rahega */
+.burger.toggle span {
+  background-color: #ffffff !important;
 }
 
+.burger.toggle span:nth-child(1) {
+  transform: rotate(-45deg) translate(-5px, 6px);
+}
 
-/* Tablet & Mobile */
+.burger.toggle span:nth-child(2) {
+  opacity: 0;
+  transform: translateX(-20px);
+}
+
+.burger.toggle span:nth-child(3) {
+  transform: rotate(45deg) translate(-5px, -6px);
+}
+
+/* ==========================================================================
+   MOBILE SIDE DRAWER OPTIMIZATION (HIGH VISIBILITY & STRUCTURAL FIX)
+   ========================================================================== */
+
 @media (max-width: 992px) {
-
+  .navbar {
+    padding: 1rem 0;
+  }
+  
   .burger {
     display: flex;
   }
 
   .nav-links {
-    position: absolute;
-    top: 70px;
-    left: 0;
-    width: 100%;
-    background: rgba(255, 255, 255, 0.98);
-
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 80%;
+    max-width: 320px;
+    height: 100vh;
+    background: #0f172a !important; /* Forces rich slate dark background */
+    box-shadow: -10px 0 30px rgba(0, 0, 0, 0.4);
     flex-direction: column;
-    align-items: center;
-    gap: 22px;
-    padding: 25px 0;
-
-    display: none;
-
-    border-radius: 0 0 14px 14px;
-
+    align-items: flex-start;
+    padding: 8rem 2.5rem 2.5rem 2.5rem;
+    gap: 1.5rem;
+    transition: right 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   }
 
   .nav-links.open {
-    display: flex;
+    right: 0;
   }
 
-}
-/* Hamburger click → navbar white */
-.navbar.menu-open {
-  background: rgba(255, 255, 255, 0.98) !important;
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+  .nav-links li {
+    width: 100%;
+  }
+
+  /* 
+     FIX: Combined Specificity Blocks to overpower transparent/solid state leakages.
+     Ab chahe navbar scrolled ho ya hero section par transparent ho, text clean premium grey-white dikhega.
+  */
+  .navbar .nav-links a:not(.nav-cta),
+  .navbar-transparent .nav-links a:not(.nav-cta),
+  .navbar-solid .nav-links a:not(.nav-cta) {
+    font-size: 1.15rem;
+    color: #e2e8f0 !important; /* Perfect high-contrast text color over dark background */
+    text-shadow: none !important;
+    width: 100%;
+    display: block;
+    padding: 0.6rem 0.8rem;
+    border-radius: 8px;
+    transition: all 0.2s ease;
+    font-weight: 500;
+  }
+
+  /* MOBILE TOUCH INTERACTION HOOKS (Bright Solar Orange on click/active) */
+  .navbar .nav-links a:not(.nav-cta):hover,
+  .navbar .nav-links a:not(.nav-cta):active,
+  .navbar .nav-links a.active:not(.nav-cta),
+  .navbar-solid .nav-links a:not(.nav-cta):active,
+  .navbar-transparent .nav-links a:not(.nav-cta):active {
+    color: #ff9f1c !important; /* Bright crisp active feedback */
+    background: rgba(255, 159, 28, 0.08) !important; 
+    padding-left: 1.2rem;
+  }
+
+  .nav-links a::after {
+    display: none; 
+  }
+
+  .nav-cta-li {
+    width: 100%;
+    margin-top: 1rem;
+    padding: 0 0.8rem;
+  }
+
+  .nav-cta {
+    text-align: center;
+    display: block !important;
+    width: 100%;
+    padding: 0.8rem 1.5rem;
+  }
+  
+  .nav-cta:active {
+    transform: scale(0.98);
+  }
 }

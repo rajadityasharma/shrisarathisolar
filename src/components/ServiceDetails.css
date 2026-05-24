@@ -1,47 +1,187 @@
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@600;700;800&display=swap');
+
 .service-details {
-  padding: 90px 20px;
-  background: #ffffff;
+  padding: 120px 24px;
+  background: linear-gradient(135deg, #f1fbf7 0%, #ebfaf2 100%);
+  overflow: hidden;
+  position: relative;
 }
 
 .service-details-wrapper {
   max-width: 1200px;
   margin: auto;
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 60px;
+  grid-template-columns: 0.95fr 1.05fr;
+  gap: 80px;
   align-items: center;
 }
 
-.service-details-wrapper img {
+/* --- Image Presentation States --- */
+.service-details-image {
+  opacity: 0;
+  transform: translateX(-30px);
+  transition: opacity 0.8s ease, transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.image-float-wrapper {
+  position: relative;
+}
+
+.service-details-image img {
   width: 100%;
   border-radius: 24px;
-  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.15);
+  border: 1px solid rgba(167, 243, 208, 0.5);
+  box-shadow: 0 20px 50px rgba(4, 120, 87, 0.08);
+}
+
+.service-image-aura {
+  position: absolute;
+  top: 10%;
+  left: 10%;
+  width: 80%;
+  height: 80%;
+  background: radial-gradient(circle, rgba(16, 185, 129, 0.2) 0%, transparent 70%);
+  z-index: -1;
+  filter: blur(25px);
+  pointer-events: none;
+}
+
+/* --- Content States --- */
+.service-details-content {
+  opacity: 0;
+  transform: translateX(30px);
+  transition: opacity 0.8s ease, transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.service-mini-badge {
+  display: inline-block;
+  padding: 6px 14px;
+  background: rgba(255, 255, 255, 0.8);
+  border: 1px solid #a7f3d0;
+  color: #047857;
+  font-size: 11px;
+  font-weight: 800;
+  border-radius: 30px;
+  margin-bottom: 20px;
+  text-transform: uppercase;
+  letter-spacing: 1.2px;
 }
 
 .service-details-content h2 {
-  font-size: 2.4rem;
-  color: #0a2f4f;
-  margin-bottom: 16px;
+  font-size: 44px;
+  font-weight: 800;
+  color: #0f172a; 
+  margin: 0 0 18px 0;
+  letter-spacing: -1.5px;
+  line-height: 1.15;
 }
 
-.service-details-content p {
-  color: #555;
-  margin-bottom: 20px;
+.highlight-gradient {
+  background: linear-gradient(135deg, #059669 0%, #0d9488 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
 }
 
-.service-details-content ul {
+.service-description {
+  color: #475569;
+  font-size: 16.5px;
+  line-height: 1.75;
+  margin-bottom: 32px;
+}
+
+/* --- List Items --- */
+.service-animated-list {
   list-style: none;
   padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
 }
 
-.service-details-content li {
-  margin-bottom: 10px;
-  font-weight: 500;
-  color: #2ecc71;
+.service-animated-list li {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  color: #1e293b;
+  font-weight: 600;
+  font-size: 16px;
+  opacity: 0;
+  transform: translateY(15px);
+  transition: transform 0.25s ease, color 0.25s ease;
 }
 
+.dynamic-tick {
+  color: #10b981;
+  font-weight: 900;
+  font-size: 18px;
+  transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+/* Hover Interactions */
+.service-animated-list li:hover {
+  color: #059669;
+  transform: translateX(5px);
+  cursor: pointer;
+}
+
+.service-animated-list li:hover .dynamic-tick {
+  transform: scale(1.3) rotate(10deg);
+}
+
+/* ===================================================
+   🔥 WHEN SECTION ENTER IN SCREEN (SCROLL TRIGGERED)
+   =================================================== */
+
+.service-details.is-visible .service-details-image {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* Image continuous floating loop activates only after entrance */
+.service-details.is-visible .image-float-wrapper {
+  animation: naturalFloat 5s ease-in-out infinite;
+  animation-delay: 0.8s; /* Wave entrance complete hone ke baad shake shuru ho */
+}
+
+.service-details.is-visible .service-details-content {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* List points sequence logic */
+.service-details.is-visible .service-animated-list li {
+  animation: cascadeUp 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  animation-delay: calc(var(--delay) * 0.12s + 0.3s); /* Beautiful staggered timing */
+}
+
+
+/* --- Responsive Adjustments --- */
 @media (max-width: 900px) {
   .service-details-wrapper {
     grid-template-columns: 1fr;
+    gap: 55px;
+    text-align: center;
   }
+  .service-mini-badge { margin: 0 auto 20px; }
+  .service-details-image { max-width: 460px; margin: 0 auto; }
+  .service-animated-list { align-items: center; }
+}
+
+@media (max-width: 640px) {
+  .service-details { padding: 80px 0; }
+  .service-details-content h2 { font-size: 34px; }
+}
+
+/* --- KEYFRAMES --- */
+@keyframes naturalFloat {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+  100% { transform: translateY(0px); }
+}
+
+@keyframes cascadeUp {
+  0% { opacity: 0; transform: translateY(15px); }
+  100% { opacity: 1; transform: translateY(0); }
 }

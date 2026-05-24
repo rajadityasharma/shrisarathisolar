@@ -1,60 +1,118 @@
-.scroll-top-btn {
+/* ==========================================================================
+   PREMIUM FLOATING SCROLL RADIAL BUTTON (PIXEL-PERFECT ALIGNMENT)
+   ========================================================================== */
+
+.premium-scroll-btn {
   position: fixed;
   bottom: 30px;
-  right: 25px;
-  width: 52px;
-  height: 52px;
-  border-radius: 50%;
+  right: 30px; /* Desktop par ekdum mast right side me */
+  width: 48px;
+  height: 48px;
+  background: #111111; /* Deep rich dark core */
   border: none;
+  border-radius: 50%;
   cursor: pointer;
-  background: linear-gradient(145deg, #026ac0, #2ecca4);
-  color: #fff;
-  font-size: 1.2rem;
   display: flex;
   align-items: center;
   justify-content: center;
-  z-index: 999;
+  z-index: 999; /* Z-index safely below primary layouts */
   opacity: 0;
-  pointer-events: none;
-  box-shadow:
-    0 10px 25px rgba(0, 0, 0, 0.25),
-    inset -4px -4px 10px rgba(255, 255, 255, 0.4);
-  transition: all 0.4s ease;
+  visibility: hidden;
+  transform: translateY(15px) scale(0.9);
+  transition: opacity 0.4s ease, transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), visibility 0.4s;
+  padding: 0;
+  outline: none;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
 }
 
-/* SHINE EFFECT */
-.scroll-top-btn::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  border-radius: 50%;
-  background: linear-gradient(
-    120deg,
-    transparent,
-    rgba(255, 255, 255, 0.6),
-    transparent
-  );
-  transform: translateX(-100%);
-  animation: shine 3s infinite;
-}
-
-.scroll-top-btn.show {
+/* Entry Animation Trigger class state */
+.premium-scroll-btn.visible {
   opacity: 1;
-  pointer-events: auto;
+  visibility: visible;
+  transform: translateY(0) scale(1);
 }
 
-.scroll-top-btn:hover {
-  transform: translateY(-4px) scale(1.08);
+/* ─── HOVER & ACTIVE DYNAMICS ─── */
+.premium-scroll-btn:hover {
+  background: #1a1a1a;
+  transform: translateY(-4px);
+  box-shadow: 0 14px 35px rgba(255, 159, 28, 0.2); /* Ambient solar orange glow */
 }
 
-@keyframes shine {
-  0% {
-    transform: translateX(-100%);
+.premium-scroll-btn:hover .arrow-icon-wrapper {
+  color: #ff9f1c; /* Brand Solar Orange pop */
+  transform: translateY(-2px);
+}
+
+.premium-scroll-btn:active {
+  transform: translateY(-1px) scale(0.96);
+}
+
+/* ─── ARROW CONTAINER LAYERING ─── */
+.arrow-icon-wrapper {
+  position: absolute;
+  font-size: 1rem;
+  color: #ffffff; /* Stark crystal contrast */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.3s ease, color 0.3s ease;
+  z-index: 2;
+}
+
+/* ─── PROGRESS CIRCLE MATHEMATICS ─── */
+.progress-ring-svg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  transform: rotate(-90deg); /* Progress starts right from center top */
+  z-index: 1;
+  pointer-events: none;
+}
+
+/* Background silent track */
+.progress-ring-track {
+  fill: transparent;
+  stroke: rgba(255, 255, 255, 0.08); /* Minimal soft hidden background line */
+  stroke-width: 2.5;
+}
+
+/* Active driving track indicator */
+.progress-ring-indicator {
+  fill: transparent;
+  stroke: #ff9f1c; /* Energetic brand solar accent */
+  stroke-width: 2.5;
+  stroke-linecap: round; /* Smooth curved line caps */
+  transition: stroke-dashoffset 0.1s linear;
+}
+
+/* ==========================================================================
+   MOBILE VIEW OPTIMIZATION (LEFT ALIGNMENT & 80PX BOTTOM GAP)
+   ========================================================================== */
+@media (max-width: 768px) {
+  .premium-scroll-btn {
+    bottom: 80px;  /* Exact 80px spacing from mobile screen bottom */
+    left: 20px;    /* Perfectly shifted to the left side edge */
+    right: auto;   /* Overriding desktop right configuration */
+    width: 44px;
+    height: 44px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
   }
-  50% {
-    transform: translateX(100%);
+
+  /* SVG scale re-adjustments for smaller responsive circles */
+  .progress-ring-svg {
+    width: 44px;
+    height: 44px;
   }
-  100% {
-    transform: translateX(100%);
+  
+  .progress-ring-track,
+  .progress-ring-indicator {
+    cx: 22 !important;
+    cy: 22 !important;
+    r: 18 !important; /* Adjusted footprint for cleaner look */
+  }
+
+  .arrow-icon-wrapper {
+    font-size: 0.9rem;
   }
 }

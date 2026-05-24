@@ -1,205 +1,211 @@
-.side-actions {
+/* ==========================================================================
+   MONOCHROME VERTICAL CENTERED PANEL (HIGH VISIBILITY + HOVER DELAY)
+   ========================================================================== */
+
+.mono-side-panel {
   position: fixed;
-  right: 22px;
-  top: 50%;
-  transform: translateY(-50%);
+  right: 0;
+  top: 45%; 
+  transform: translateY(-50%); 
   display: flex;
   flex-direction: column;
-  gap: 16px;
-  z-index: 999;
+  background: #111111; 
+  border-top-left-radius: 12px;
+  border-bottom-left-radius: 12px;
+  border: 1px solid #333333; 
+  border-right: none;
+  box-shadow: -10px 0 35px rgba(0, 0, 0, 0.4);
+  padding: 0.6rem 0.4rem;
+  gap: 0.6rem;
+  z-index: 9999;
 }
 
-/* COMMON BUTTON */
-.action-btn {
+.mono-row-wrapper {
   position: relative;
-  width: 56px;
-  height: 56px;
-  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  padding-left: 20px;
+  margin-left: -20px;
+}
+
+/* ─── DESKTOP STANDARD MINIMAL ICONS ─── */
+.mono-trigger {
+  width: 44px;
+  height: 44px;
+  border-radius: 8px;
   display: flex;
   align-items: center;
   justify-content: center;
-  color: white;
-  font-size: 22px;
+  font-size: 1.25rem;
+  color: #a3a3a3; 
+  cursor: pointer;
+  transition: all 0.25s ease;
   text-decoration: none;
-  overflow: hidden;
-
-  /* 3D DEPTH */
-  box-shadow:
-    inset -3px -3px 6px rgba(255,255,255,0.35), /* top shine */
-    inset 3px 3px 6px rgba(0,0,0,0.35),         /* bottom depth */
-    0 10px 0 rgba(0,0,0,0.25),
-    0 18px 30px rgba(0,0,0,0.45);
-
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-/* FLOAT */
-.action-btn:hover {
-  transform: translateY(-6px) scale(1.08);
-  box-shadow:
-    inset -3px -3px 6px rgba(255,255,255,0.4),
-    inset 3px 3px 6px rgba(0,0,0,0.35),
-    0 14px 0 rgba(0,0,0,0.3),
-    0 24px 40px rgba(0,0,0,0.55);
+.mono-trigger:hover,
+.mono-row-wrapper:hover .mono-trigger {
+  color: #ffffff;
+  background-color: #222222;
 }
 
-/* PRESS */
-.action-btn:active {
-  transform: translateY(3px);
-  box-shadow:
-    inset -2px -2px 5px rgba(255,255,255,0.3),
-    inset 2px 2px 5px rgba(0,0,0,0.35),
-    0 6px 0 rgba(0,0,0,0.25),
-    0 10px 16px rgba(0,0,0,0.35);
-}
-
-/* 💧 WATER SHINE LAYER */
-.action-btn::before {
-  content: "";
+/* ─── SLIDE IN CARD DESIGN WITH SMART DELAY ─── */
+.mono-expandable-card {
   position: absolute;
-  top: 6px;
-  left: 8px;
-  width: 65%;
-  height: 65%;
+  right: 56px;
+  top: 50%;
+  transform: translateY(-50%) translateX(10px);
+  width: 240px;
+  background: #ffffff; 
+  border-radius: 10px;
+  border: 1px solid #e5e7eb;
+  box-shadow: -12px 12px 30px rgba(0, 0, 0, 0.18);
+  padding: 0.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease 0.3s, transform 0.3s cubic-bezier(0.25, 1, 0.5, 1) 0.3s, visibility 0s linear 0.6s;
+  pointer-events: none;
+}
+
+.single-row-card {
+  width: 245px;
+}
+
+.mono-row-wrapper:hover .mono-expandable-card {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(-50%) translateX(0);
+  pointer-events: auto;
+  transition: opacity 0.25s ease 0s, transform 0.25s cubic-bezier(0.25, 1, 0.5, 1) 0s;
+}
+
+.mono-expandable-card::after {
+  content: '';
+  position: absolute;
+  right: -5px;
+  top: 50%;
+  transform: translateY(-50%) rotate(45deg);
+  width: 10px;
+  height: 10px;
+  background: #ffffff;
+  border-top: 1px solid #e5e7eb;
+  border-right: 1px solid #e5e7eb;
+}
+
+.mono-card-header {
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+  color: #737373;
+  font-weight: 700;
+  padding: 0.2rem 0.4rem 0.3rem;
+  border-bottom: 1px solid #f5f5f5;
+}
+
+.mono-action-link {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.45rem 0.5rem;
+  text-decoration: none;
+  border-radius: 6px;
+  transition: background 0.2s ease;
+}
+
+.mono-action-link:hover {
+  background: #f5f5f5;
+}
+
+.mono-link-meta {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.25;
+}
+
+.mono-link-meta small {
+  font-size: 0.68rem;
+  color: #737373;
+}
+
+.mono-link-meta strong {
+  font-size: 0.85rem;
+  color: #171717;
+}
+
+.mono-status-dot {
+  width: 6px;
+  height: 6px;
+  background: #171717;
   border-radius: 50%;
-  background: radial-gradient(
-    circle at top left,
-    rgba(255,255,255,0.85),
-    rgba(255,255,255,0.25) 35%,
-    transparent 60%
-  );
-  opacity: 0.9;
-}
-
-/* 🌊 MOVING GLOSS SWEEP */
-.action-btn::after {
-  content: "";
-  position: absolute;
-  top: -120%;
-  left: -120%;
-  width: 200%;
-  height: 200%;
-  background: linear-gradient(
-    120deg,
-    transparent 30%,
-    rgba(255,255,255,0.35),
-    transparent 70%
-  );
-  animation: shine 4s infinite;
-}
-
-/* PLATFORM COLORS */
-.whatsapp {
-  background: linear-gradient(145deg, #2cff88, #1da851);
-}
-
-.phone {
-  background: linear-gradient(145deg, #38bdf8, #0284c7);
-}
-
-.email {
-  background: linear-gradient(145deg, #4ade80, #16a34a);
-}
-
-/* ICON ABOVE ALL */
-.action-btn i {
   position: relative;
-  z-index: 2;
 }
 
-/* SHINE ANIMATION */
-@keyframes shine {
-  0% {
-    transform: translateX(-50%) translateY(-50%) rotate(25deg);
-    opacity: 0;
-  }
-  40% {
-    opacity: 0.6;
-  }
-  100% {
-    transform: translateX(50%) translateY(50%) rotate(25deg);
-    opacity: 0;
-  }
+.mono-status-dot::after {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; width: 100%; height: 100%;
+  border-radius: 50%;
+  background: #171717;
+  animation: mono-pulse 2s infinite ease-in-out;
 }
 
-/* MOBILE */
+.mono-icon-sub {
+  color: #737373;
+  font-size: 0.82rem;
+}
+
+@keyframes mono-pulse {
+  0% { transform: scale(1); opacity: 0.5; }
+  100% { transform: scale(2.5); opacity: 0; }
+}
+
+
+/* ==========================================================================
+   FIXED MOBILE OPTIMIZATION CODES (NO HOVER BUG + HIGH VISIBLE COLOR)
+   ========================================================================== */
 @media (max-width: 768px) {
-  .side-actions {
-    right: 14px;
+  .mono-side-panel {
+    top: auto;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    transform: none;
+    flex-direction: row;
+    justify-content: space-around;
+    border-radius: 0;
+    border-top: 1px solid #262626; /* Clean boundary separation line */
+    padding: 0.6rem 1rem;
+    background: #0a0a0a; /* Premium deep black core bottom bar */
+    box-shadow: 0 -8px 25px rgba(0, 0, 0, 0.5);
   }
 
-  .action-btn {
+  .mono-row-wrapper {
+    padding-left: 0;
+    margin-left: 0;
+  }
+
+  /* Icons ko ekdum Crisp White aur Highly Visible kar diya */
+  .mono-trigger {
     width: 46px;
     height: 46px;
-    font-size: 20px;
+    font-size: 1.45rem;
+    color: #ffffff !important; /* Forces maximum brightness over dynamic phone backdrops */
+    opacity: 1 !important;
+    background-color: transparent;
   }
-}
 
-.side-actions {
-  position: fixed;
-  right: 20px;
-  bottom: 100px;
-  display: flex;
-  flex-direction: column;
-  gap: 15px;
-}
+  /* Active press reaction instead of faulty desktop hover triggers */
+  .mono-trigger:active {
+    background-color: #222222;
+    border-radius: 50%;
+    transform: scale(0.92);
+  }
 
-.action-wrapper {
-  position: relative;
-}
-
-.action-btn {
-  width: 55px;
-  height: 55px;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: white;
-  font-size: 22px;
-  cursor: pointer;
-}
-
-.whatsapp {
-  background: #25d366;
-}
-
-.phone {
-  background: #2563eb;
-}
-
-.email {
-  background: #ef4444;
-}
-
-/* Dropdown hidden by default */
-.dropdown {
-  position: absolute;
-  right: 58px;
-  top: 50%;
-  transform: translateY(-50%);
-  background: linear-gradient(rgba(255, 0, 0, 0.507),rgba(0, 0, 255, 0.411));
-  padding: 5px;
-  border-radius: 10px;
-  box-shadow: 0 5px 15px rgba(0,0,0,0.2);
-  display: none;
-  flex-direction: column;
-}
-
-.dropdown a {
-  text-decoration: none;
-  color: #111;
-  padding: 6px 10px;
-  font-size: 14px;
-  white-space: nowrap;
-}
-
-.dropdown a:hover {
-  background: #8fc2f559;
-  border-radius: 6px;
-}
-
-/* Show on hover */
-.action-wrapper:hover .dropdown {
-  display: flex;
+  /* Mobile bottom bar par card slide dropdown systems bypass */
+  .mono-expandable-card {
+    display: none !important; 
+  }
 }
