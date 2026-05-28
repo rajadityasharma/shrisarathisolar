@@ -6,61 +6,86 @@ import service4 from "../assets/service-subsidy.webp";
 import { Link } from "react-router-dom";
 
 function ServicesSection() {
+  const services = [
+    {
+      img: service1,
+      number: "01",
+      title: "Solar Installation",
+      desc: "Premium rooftop solar installation for homes and businesses.",
+    },
+    {
+      img: service2,
+      number: "02",
+      title: "Maintenance & AMC",
+      desc: "Regular maintenance and AMC support for long-lasting performance.",
+    },
+    {
+      img: service3,
+      number: "03",
+      title: "Commercial & Industrial",
+      desc: "Custom solar systems for factories, industries and warehouses.",
+    },
+    {
+      img: service4,
+      number: "04",
+      title: "Subsidy & Net Metering",
+      desc: "Complete assistance for subsidy approval and net metering.",
+    },
+  ];
+
   return (
     <section className="services-section">
       <div className="services-container">
 
         {/* HEADING */}
         <div className="services-header">
-          {/* <h2>Our Services</h2> */}
+          <span>OUR SERVICES</span>
+
+          <h2>
+            Connected Solar Ecosystem
+          </h2>
+
           <p>
-            Complete solar energy solutions designed for homes, businesses,
-            and industries across India.
+            Every service is connected together to provide
+            a complete solar journey for your home and business.
           </p>
         </div>
 
-        {/* CARDS */}
-        <div className="services-grid">
+        {/* CONNECTED LAYOUT */}
+        <div className="services-flow">
 
-          <div className="service-card">
-            <img src={service1} alt="Solar Installation" />
-            <h3>Solar Installation</h3>
-            <p>
-              High-quality rooftop solar installation for residential and
-              commercial projects.
-            </p>
-            <Link to="/services">Learn More</Link>
-          </div>
+          {services.map((service, index) => (
+            <div className="service-item" key={index}>
 
-          <div className="service-card">
-            <img src={service2} alt="Solar Maintenance" />
-            <h3>Maintenance & AMC</h3>
-            <p>
-              Reliable maintenance services to ensure maximum performance
-              and long system life.
-            </p>
-            <Link to="/services">Learn More</Link>
-          </div>
+              {/* LINE */}
+              {index !== services.length - 1 && (
+                <div className="connector-line"></div>
+              )}
 
-          <div className="service-card">
-            <img src={service3} alt="Commercial Solar" />
-            <h3>Commercial & Industrial</h3>
-            <p>
-              Customized solar solutions for factories, warehouses,
-              and large establishments.
-            </p>
-            <Link to="/services">Learn More</Link>
-          </div>
+              {/* IMAGE */}
+              <div className="service-image">
+                <img src={service.img} alt={service.title} />
+              </div>
 
-          <div className="service-card">
-            <img src={service4} alt="Subsidy Support" />
-            <h3>Subsidy & Net Metering</h3>
-            <p>
-              Complete support for government subsidies and net metering
-              approvals.
-            </p>
-            <Link to="/services">Learn More</Link>
-          </div>
+              {/* CONTENT */}
+              <div className="service-content">
+
+                <span className="service-number">
+                  {service.number}
+                </span>
+
+                <h3>{service.title}</h3>
+
+                <p>{service.desc}</p>
+
+                {/* <Link to="/services">
+                  Explore More
+                </Link> */}
+
+              </div>
+
+            </div>
+          ))}
 
         </div>
       </div>

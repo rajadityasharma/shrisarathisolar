@@ -1,186 +1,414 @@
+/* =========================
+   SECTION
+========================= */
+
 .services-section {
-  padding: 90px 20px;
+  padding: 120px 20px;
   background:
-    radial-gradient(circle at top left, rgba(0,180,216,0.08), transparent 35%),
-    linear-gradient(to bottom, #f7fbff, #eef5f9);
+    radial-gradient(circle at top left,
+      rgba(134, 239, 172, 0.18),
+      transparent 30%),
+
+    radial-gradient(circle at bottom right,
+      rgba(187, 247, 208, 0.18),
+      transparent 30%),
+
+    linear-gradient(180deg,
+      #fcfffd 0%,
+      #f3fff8 100%);
+
   overflow: hidden;
   position: relative;
 }
 
-.services-container {
-  max-width: 1320px;
-  margin: auto;
+/* Animated background blur */
+
+.services-section::before,
+.services-section::after {
+  content: "";
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(90px);
+  z-index: 0;
+  animation: blobMove 10s infinite alternate ease-in-out;
 }
 
-/* HEADER */
+.services-section::before {
+  width: 260px;
+  height: 260px;
+  background: rgba(134, 239, 172, 0.18);
+  top: -50px;
+  left: -60px;
+}
+
+.services-section::after {
+  width: 320px;
+  height: 320px;
+  background: rgba(187, 247, 208, 0.18);
+  bottom: -100px;
+  right: -100px;
+}
+
+@keyframes blobMove {
+  0% {
+    transform: translate(0, 0);
+  }
+
+  100% {
+    transform: translate(30px, -20px);
+  }
+}
+
+.services-container {
+  max-width: 1350px;
+  margin: auto;
+  position: relative;
+  z-index: 2;
+}
+
+/* =========================
+   HEADER
+========================= */
+
 .services-header {
   text-align: center;
-  margin-bottom: 55px;
+  margin-bottom: 100px;
+  animation: fadeUp 1s ease;
+}
+
+.services-header span {
+  display: inline-block;
+  padding: 9px 22px;
+  border-radius: 50px;
+  background: rgba(134, 239, 172, 0.18);
+  color: #16a34a;
+  font-size: 0.82rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+  margin-bottom: 22px;
+  backdrop-filter: blur(10px);
+}
+
+.services-header h2 {
+  font-size: 3.5rem;
+  font-weight: 800;
+  color: #0f172a;
+  margin-bottom: 20px;
+  line-height: 1.2;
 }
 
 .services-header p {
   max-width: 760px;
   margin: auto;
-  color: #627786;
-  font-size: 1rem;
-  line-height: 1.8;
+  color: #64748b;
+  line-height: 1.9;
+  font-size: 1.05rem;
 }
 
-/* GRID */
-.services-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-  gap: 26px;
-}
+/* =========================
+   FLOW LAYOUT
+========================= */
 
-/* CARD */
-.service-card {
+.services-flow {
   position: relative;
-  background: rgba(255,255,255,0.92);
-  overflow: hidden;
-  transition: 0.45s ease;
-  border: 1px solid rgba(0, 180, 216, 0.08);
-  box-shadow:
-    0 8px 24px rgba(0,0,0,0.06),
-    0 2px 8px rgba(0,0,0,0.03);
-
-  border-radius: 0;
-  backdrop-filter: blur(8px);
+  display: flex;
+  justify-content: space-between;
+  gap: 25px;
 }
 
-/* TOP ANIMATED LINE */
-.service-card::before {
+/* =========================
+   ITEM
+========================= */
+
+.service-item {
+  position: relative;
+  width: 25%;
+  text-align: center;
+  animation: fadeUp 1s ease;
+}
+
+/* Floating animation */
+
+.service-item:nth-child(1) {
+  animation:
+    fadeUp 1s ease,
+    floating 5s infinite ease-in-out;
+}
+
+.service-item:nth-child(2) {
+  animation:
+    fadeUp 1s ease,
+    floating 6s infinite ease-in-out;
+}
+
+.service-item:nth-child(3) {
+  animation:
+    fadeUp 1s ease,
+    floating 5.5s infinite ease-in-out;
+}
+
+.service-item:nth-child(4) {
+  animation:
+    fadeUp 1s ease,
+    floating 6.5s infinite ease-in-out;
+}
+
+@keyframes floating {
+  0% {
+    transform: translateY(0px);
+  }
+
+  50% {
+    transform: translateY(-10px);
+  }
+
+  100% {
+    transform: translateY(0px);
+  }
+}
+
+/* =========================
+   CONNECTOR LINE
+========================= */
+
+.connector-line {
+  position: absolute;
+  top: 90px;
+  left: 75%;
+  width: 100%;
+  height: 3px;
+  z-index: 0;
+  overflow: hidden;
+  border-radius: 10px;
+  background: rgba(134, 239, 172, 0.25);
+}
+
+/* moving light */
+
+.connector-line::before {
   content: "";
   position: absolute;
   top: 0;
-  left: -100%;
-  width: 100%;
-  height: 3px;
-  background: linear-gradient(to right, #00b4d8, #2ecc71);
-  transition: 0.5s ease;
-  z-index: 2;
-}
-
-.service-card:hover::before {
-  left: 0;
-}
-
-/* IMAGE */
-.service-card img {
-  width: 100%;
-  height: 180px; /* REDUCED HEIGHT */
-  object-fit: cover;
-  display: block;
-  transition: 0.7s ease;
-  filter: brightness(0.93);
-}
-
-.service-card:hover img {
-  transform: scale(1.08);
-  filter: brightness(1);
-}
-
-/* CONTENT */
-.service-card h3 {
-  font-size: 1.18rem;
-  color: #0b2942;
-  margin: 18px 20px 10px;
-  font-weight: 700;
-  position: relative;
-}
-
-.service-card h3::after {
-  content: "";
-  display: block;
-  width: 42px;
-  height: 3px;
-  margin-top: 8px;
-  background: linear-gradient(to right, #00b4d8, #2ecc71);
-}
-
-.service-card p {
-  color: #667784;
-  line-height: 1.7;
-  font-size: 0.9rem;
-  margin: 0 20px 20px;
-}
-
-/* BUTTON */
-.service-card a {
-  display: inline-block;
-  margin: 0 20px 22px;
-  padding: 10px 20px;
-  background: linear-gradient(135deg, #00b4d8, #2ecc71);
-  color: #fff;
-  text-decoration: none;
-  font-size: 0.86rem;
-  font-weight: 700;
-  letter-spacing: 0.4px;
-  transition: 0.35s ease;
-  position: relative;
-  overflow: hidden;
-  border-radius: 0;
-}
-
-/* BUTTON SHINE */
-.service-card a::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: -120%;
-  width: 60%;
+  left: -20%;
+  width: 120px;
   height: 100%;
-  background: rgba(255,255,255,0.28);
-  transform: skewX(-25deg);
+  background:
+    linear-gradient(
+      90deg,
+      transparent,
+      rgba(34, 197, 94, 0.7),
+      transparent
+    );
+
+  animation: lineMove 2.8s infinite linear;
+}
+
+@keyframes lineMove {
+  0% {
+    left: -30%;
+  }
+
+  100% {
+    left: 100%;
+  }
+}
+
+/* =========================
+   IMAGE
+========================= */
+
+.service-image {
+  position: relative;
+  width: 185px;
+  height: 185px;
+  margin: auto;
+  border-radius: 50%;
+  padding: 8px;
+
+  background:
+    linear-gradient(
+      135deg,
+      rgba(134, 239, 172, 0.8),
+      rgba(187, 247, 208, 0.7)
+    );
+
+  z-index: 2;
+
+  box-shadow:
+    0 20px 45px rgba(134, 239, 172, 0.18);
+
+  transition: 0.5s ease;
+}
+
+.service-image::before {
+  content: "";
+  position: absolute;
+  inset: -8px;
+  border-radius: 50%;
+  border: 2px dashed rgba(34, 197, 94, 0.2);
+  animation: rotateCircle 12s linear infinite;
+}
+
+@keyframes rotateCircle {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.service-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
   transition: 0.6s ease;
 }
 
-.service-card a:hover::before {
-  left: 140%;
+.service-item:hover img {
+  transform: scale(1.08);
 }
 
-.service-card a:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 8px 18px rgba(0,180,216,0.22);
+.service-item:hover .service-image {
+  transform: translateY(-8px) scale(1.03);
 }
 
-/* CARD HOVER */
-.service-card:hover {
-  transform: translateY(-10px);
-  box-shadow:
-    0 18px 40px rgba(0,0,0,0.12),
-    0 4px 14px rgba(0,180,216,0.10);
+/* =========================
+   CONTENT
+========================= */
+
+.service-content {
+  margin-top: 35px;
 }
 
-/* RESPONSIVE */
+.service-number {
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: #22c55e;
+  letter-spacing: 2px;
+}
+
+.service-content h3 {
+  font-size: 1.45rem;
+  color: #0f172a;
+  margin: 14px 0;
+  line-height: 1.4;
+}
+
+.service-content p {
+  color: #64748b;
+  font-size: 0.97rem;
+  line-height: 1.8;
+  margin-bottom: 24px;
+  padding: 0 10px;
+}
+
+/* =========================
+   BUTTON
+========================= */
+
+.service-content a {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: #16a34a;
+  font-weight: 700;
+  text-decoration: none;
+  transition: 0.3s ease;
+}
+
+.service-content a::after {
+  content: "→";
+  transition: 0.3s ease;
+}
+
+.service-content a:hover::after {
+  transform: translateX(5px);
+}
+
+.service-content a:hover {
+  color: #15803d;
+}
+
+/* =========================
+   FADE ANIMATION
+========================= */
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media (max-width: 1100px) {
+
+  .services-flow {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 60px;
+  }
+
+  .service-item {
+    width: 45%;
+  }
+
+  .connector-line {
+    display: none;
+  }
+}
+
 @media (max-width: 768px) {
 
   .services-section {
-    padding: 70px 16px;
+    padding: 80px 16px;
   }
 
   .services-header {
-    margin-bottom: 45px;
+    margin-bottom: 70px;
   }
 
-  .services-grid {
-    gap: 22px;
+  .services-header h2 {
+    font-size: 2.3rem;
   }
 
-  .service-card img {
-    height: 170px;
+  .service-item {
+    width: 100%;
   }
 
-  .service-card h3 {
-    font-size: 1.08rem;
+  .service-image {
+    width: 150px;
+    height: 150px;
   }
 
-  .service-card p {
-    font-size: 0.88rem;
+  .service-content h3 {
+    font-size: 1.3rem;
+  }
+}
+
+@media (max-width: 480px) {
+
+  .services-header h2 {
+    font-size: 1.9rem;
   }
 
-  .service-card a {
-    padding: 9px 18px;
-    font-size: 0.82rem;
+  .service-image {
+    width: 130px;
+    height: 130px;
+  }
+
+  .service-content p {
+    font-size: 0.92rem;
   }
 }
